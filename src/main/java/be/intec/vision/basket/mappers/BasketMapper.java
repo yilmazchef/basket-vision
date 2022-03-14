@@ -15,19 +15,17 @@ public interface BasketMapper {
 	 * BASKET MAPPERS
 	 */
 
-	@Mapping ( target = "_id", source = "basketId" )
+	@Mapping ( target = "_id", source = "basketId")
 	@Mapping ( target = "updatedAt", ignore = true )
 	@Mapping ( target = "type", ignore = true )
 	@Mapping ( target = "createdAt", ignore = true )
-	@Mapping ( target = "basketId", ignore = true )
 	@Mapping ( target = "active", ignore = true )
 	BasketDocument toDocument( BasketRequest source );
 
-	@Mapping ( target = "_id", source = "basketId" )
+	@Mapping ( target = "_id", source = "basketId")
 	@Mapping ( target = "updatedAt", ignore = true )
 	@Mapping ( target = "type", ignore = true )
 	@Mapping ( target = "createdAt", ignore = true )
-	@Mapping ( target = "basketId", ignore = true )
 	@Mapping ( target = "active", ignore = true )
 	BasketDocument toDocument( BasketRequest source, @MappingTarget BasketDocument target );
 
