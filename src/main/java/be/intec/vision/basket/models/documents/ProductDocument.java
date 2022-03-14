@@ -6,8 +6,8 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import lombok.experimental.FieldDefaults;
-import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.mongodb.core.mapping.MongoId;
 
 import java.math.BigDecimal;
 import java.util.HashSet;
@@ -26,8 +26,8 @@ public class ProductDocument {
 		FREE
 	}
 
-	@Id
-	String _id;
+	@MongoId
+	String id;
 
 	Type type;
 

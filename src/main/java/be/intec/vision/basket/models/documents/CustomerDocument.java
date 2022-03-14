@@ -6,8 +6,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.NonNull;
 import lombok.experimental.FieldDefaults;
-import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.mongodb.core.mapping.MongoId;
 
 import java.time.LocalDate;
 import java.util.HashSet;
@@ -25,8 +25,8 @@ public class CustomerDocument {
 		OTHER
 	}
 
-	@Id
-	String _id;
+	@MongoId
+	String id;
 
 	@NonNull
 	String title;

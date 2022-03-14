@@ -5,8 +5,8 @@ import lombok.AccessLevel;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.experimental.FieldDefaults;
-import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.mongodb.core.mapping.MongoId;
 
 @Data
 @NoArgsConstructor ( force = true, access = AccessLevel.PUBLIC )
@@ -14,13 +14,13 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Document ( value = "contacts" )
 public class ContactDocument {
 
-	public enum Type{
+	public enum Type {
 		BILLING,
 		SHIPPING
 	}
 
-	@Id
-	String _id;
+	@MongoId
+	String id;
 
 	Type type;
 
