@@ -40,22 +40,28 @@ public class BasketDocument {
 	StoreDocument store;
 
 	@Transient
-	BigDecimal totalPrice = this.products.stream()
-			.filter( Objects :: nonNull )
-			.map( product -> product.getPrice() )
-			.reduce( BigDecimal.ZERO, BigDecimal :: add );
+	BigDecimal totalPrice = ( this.products != null ) ?
+			this.products.stream()
+					.filter( Objects :: nonNull )
+					.map( product -> product.getPrice() )
+					.reduce( BigDecimal.ZERO, BigDecimal :: add ) :
+			BigDecimal.ZERO;
 
 	@Transient
-	BigDecimal totalTax = this.products.stream()
-			.filter( Objects :: nonNull )
-			.map( product -> product.getTax() )
-			.reduce( BigDecimal.ZERO, BigDecimal :: add );
+	BigDecimal totalTax = ( this.products != null ) ?
+			this.products.stream()
+					.filter( Objects :: nonNull )
+					.map( product -> product.getTax() )
+					.reduce( BigDecimal.ZERO, BigDecimal :: add ) :
+			BigDecimal.ZERO;
 
 	@Transient
-	BigDecimal totalDiscount = this.products.stream()
-			.filter( Objects :: nonNull )
-			.map( product -> product.getDiscount() )
-			.reduce( BigDecimal.ZERO, BigDecimal :: add );
+	BigDecimal totalDiscount = ( this.products != null ) ?
+			this.products.stream()
+					.filter( Objects :: nonNull )
+					.map( product -> product.getDiscount() )
+					.reduce( BigDecimal.ZERO, BigDecimal :: add ) :
+			BigDecimal.ZERO;
 
 	Set< ProductDocument > products = new LinkedHashSet<>();
 	Set< PaymentDocument > payments = new LinkedHashSet<>();
