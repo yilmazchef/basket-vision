@@ -40,7 +40,7 @@ public class BasketCtrl {
 	public ResponseEntity< BasketResponse > create( @RequestBody @Valid @NotNull BasketRequest request ) {
 
 		if ( ( request.getStore() == null && request.getBasketId() == null ) &&
-				basketRepository.existsBySessionAndBasketId( request.getSession(), request.getBasketId() ) == Boolean.TRUE ) {
+				basketRepository.existsBySessionAnd_id( request.getSession(), request.getBasketId() ) == Boolean.TRUE ) {
 			throw new ResponseStatusException( HttpStatus.BAD_REQUEST, HttpFailureMessages.BASKET_EXIST_CANNOT_BE_CREATED.getDescription() );
 		}
 		BasketDocument basketDocument = basketMapper.toDocument( request );
@@ -68,7 +68,7 @@ public class BasketCtrl {
 	public ResponseEntity< BasketResponse > updateById( @RequestBody @NotNull BasketRequest request ) {
 
 		if ( ( request.getStore() == null && request.getBasketId() == null ) &&
-				basketRepository.existsByBasketId( request.getBasketId() ) == Boolean.FALSE ) {
+				basketRepository.existsBy_id( request.getBasketId() ) == Boolean.FALSE ) {
 			throw new ResponseStatusException( HttpStatus.BAD_REQUEST, HttpFailureMessages.BASKET_NOT_FOUND.getDescription() );
 		}
 
@@ -101,7 +101,7 @@ public class BasketCtrl {
 	                                                               @RequestParam ( "productId" ) @NotNull String productId,
 	                                                               @RequestParam ( "quantity" ) @NotNull Float quantity ) {
 
-		if ( basketRepository.existsByBasketId( basketId ) == Boolean.FALSE ) {
+		if ( basketRepository.existsBy_id( basketId ) == Boolean.FALSE ) {
 			throw new ResponseStatusException( HttpStatus.BAD_REQUEST, HttpFailureMessages.BASKET_NOT_FOUND.getDescription() );
 		}
 
@@ -217,7 +217,7 @@ public class BasketCtrl {
 				.status( HttpStatus.FOUND )
 				.body(
 						basketRepository
-								.findAllByCustomer_CustomerId( customerId, PageRequest.of( pageNo - 1, pageSize ) )
+								.findAllByCustomer__id( customerId, PageRequest.of( pageNo - 1, pageSize ) )
 								.stream()
 								.map( basketDocument -> basketMapper.toResponse( basketDocument ) )
 								.collect( Collectors.toUnmodifiableList() )
@@ -235,7 +235,7 @@ public class BasketCtrl {
 				.status( HttpStatus.FOUND )
 				.body(
 						basketRepository
-								.findAllByStore_StoreId( storeId, PageRequest.of( pageNo - 1, pageSize ) )
+								.findAllByStore__id( storeId, PageRequest.of( pageNo - 1, pageSize ) )
 								.stream()
 								.map( basketDocument -> basketMapper.toResponse( basketDocument ) )
 								.collect( Collectors.toUnmodifiableList() )
@@ -253,7 +253,7 @@ public class BasketCtrl {
 				.status( HttpStatus.FOUND )
 				.body(
 						basketRepository
-								.findAllByCustomer_CustomerIdAndStore_StoreId( customerId, storeId, PageRequest.of( pageNo - 1, pageSize ) )
+								.findAllByCustomer__idAndStore__id( customerId, storeId, PageRequest.of( pageNo - 1, pageSize ) )
 								.stream()
 								.map( basketDocument -> basketMapper.toResponse( basketDocument ) )
 								.collect( Collectors.toUnmodifiableList() )
@@ -267,7 +267,7 @@ public class BasketCtrl {
 	                                                  @RequestParam ( value = HttpEndpoints.PAGE_NUMBER_TEXT, required = false, defaultValue = HttpEndpoints.PAGE_NUMBER_DEFAULT_VALUE ) Integer pageNo,
 	                                                  @RequestParam ( value = HttpEndpoints.PAGE_SIZE_TEXT, required = false, defaultValue = HttpEndpoints.PAGE_SIZE_DEFAULT_VALUE ) Integer pageSize ) {
 
-		final var basket = basketRepository.findBySessionAndStore_StoreId( session, storeId );
+		final var basket = basketRepository.findBySessionAndStore__id( session, storeId );
 		if ( Objects.isNull( basket ) ) {
 			throw new ResponseStatusException( HttpStatus.NOT_FOUND, HttpFailureMessages.BASKET_NOT_FOUND.getDescription() );
 		}
@@ -307,7 +307,7 @@ public class BasketCtrl {
 	@GetMapping ( HttpEndpoints.GET_EXISTS_BY_UNIQUE_FIELDS )
 	public ResponseEntity< String > existsByUniqueFields( @RequestParam ( "session" ) @NotNull String session, @RequestParam ( "storeId" ) @NotNull String storeId ) {
 
-		return basketRepository.existsBySessionAndStore_StoreId( session, storeId )
+		return basketRepository.existsBySessionAndStore__id( session, storeId )
 				? ResponseEntity.status( HttpStatus.FOUND ).body( HttpSuccessMessages.BASKET_EXISTS.getDescription() )
 				: ResponseEntity.status( HttpStatus.NOT_FOUND ).body( HttpFailureMessages.BASKET_DOES_NOT_EXIST.getDescription() );
 	}

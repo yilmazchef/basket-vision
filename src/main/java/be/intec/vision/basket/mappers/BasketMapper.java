@@ -6,8 +6,6 @@ import be.intec.vision.basket.models.requests.*;
 import be.intec.vision.basket.models.responses.*;
 import org.mapstruct.*;
 
-import java.util.List;
-
 @Mapper ( componentModel = "spring", collectionMappingStrategy = CollectionMappingStrategy.ADDER_PREFERRED, nullValueCheckStrategy = NullValueCheckStrategy.ALWAYS )
 public interface BasketMapper {
 
@@ -15,14 +13,14 @@ public interface BasketMapper {
 	 * BASKET MAPPERS
 	 */
 
-	@Mapping ( target = "_id", source = "basketId")
+	@Mapping ( target = "_id", source = "basketId" )
 	@Mapping ( target = "updatedAt", ignore = true )
 	@Mapping ( target = "type", ignore = true )
 	@Mapping ( target = "createdAt", ignore = true )
 	@Mapping ( target = "active", ignore = true )
 	BasketDocument toDocument( BasketRequest source );
 
-	@Mapping ( target = "_id", source = "basketId")
+	@Mapping ( target = "_id", source = "basketId" )
 	@Mapping ( target = "updatedAt", ignore = true )
 	@Mapping ( target = "type", ignore = true )
 	@Mapping ( target = "createdAt", ignore = true )

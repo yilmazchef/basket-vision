@@ -16,36 +16,36 @@ public interface BasketRepository extends MongoRepository< BasketDocument, Strin
 
 	Boolean existsBySession( final @NotNull String session );
 
-	Boolean existsByBasketId( final @NotNull String basketId );
+	Boolean existsBy_id( final @NotNull String basketId );
 
-	Boolean existsBySessionAndBasketId( final @NotNull String session, final String basketId );
+	Boolean existsBySessionAnd_id( final @NotNull String session, final String basketId );
 
-	Boolean existsBySessionAndCustomer_customerIdAndStore_StoreId( final @NotNull String session, final String customer_customerId, final String store_storeId );
+	Boolean existsBySessionAndCustomer__idAndStore__id( final @NotNull String session, final String customer_customerId, final String store_storeId );
 
-	Boolean existsBySessionAndStore_StoreId( final @NotNull String session, final @NotNull String store_storeId );
+	Boolean existsBySessionAndStore__id( final @NotNull String session, final @NotNull String store_storeId );
 
-	BasketDocument findByStore_StoreId( final @NotNull String store_storeId );
+	BasketDocument findByStore__id( final @NotNull String store_storeId );
 
 	List< BasketDocument > findBySession( final @NotNull String session );
 
-	List< BasketDocument > findAllByCustomer_CustomerId( final String customer_customerId );
+	List< BasketDocument > findAllByCustomer__id( final String customer_customerId );
 
-	Page< BasketDocument > findAllByCustomer_CustomerId( final String customer_customerId, final Pageable pageable );
+	Page< BasketDocument > findAllByCustomer__id( final String customer_customerId, final Pageable pageable );
 
-	List< BasketDocument > findAllByStore_StoreId( final String store_storeId );
+	List< BasketDocument > findAllByStore__id( final String store_storeId );
 
-	Page< BasketDocument > findAllByStore_StoreId( final String store_storeId, final Pageable pageable );
+	Page< BasketDocument > findAllByStore__id( final String store_storeId, final Pageable pageable );
 
-	List< BasketDocument > findAllByCustomer_CustomerIdAndStore_StoreId( final String customer_customerId, final String store_storeId );
+	List< BasketDocument > findAllByCustomer__idAndStore__id( final String customer_customerId, final String store_storeId );
 
-	Page< BasketDocument > findAllByCustomer_CustomerIdAndStore_StoreId( final String customer_customerId, final String store_storeId, final Pageable pageable );
+	Page< BasketDocument > findAllByCustomer__idAndStore__id( final String customer_customerId, final String store_storeId, final Pageable pageable );
 
-	BasketDocument getByCustomer_CustomerIdAndStore_StoreId( final String customer_customerId, final String store_storeId );
+	BasketDocument getByCustomer__idAndStore__id( final String customer_customerId, final String store_storeId );
 
-	BasketDocument getBySessionAndStore_StoreId( final @NotNull String session, final String store_storeId );
+	BasketDocument getBySessionAndStore__id( final @NotNull String session, final String store_storeId );
 
 	BasketDocument getBySession( final @NotNull String session );
 
-	Optional< BasketDocument > findBySessionAndStore_StoreId( final @NotNull String session, final String store_storeId );
+	Optional< BasketDocument > findBySessionAndStore__id( final @NotNull String session, final String store_storeId );
 
 }
