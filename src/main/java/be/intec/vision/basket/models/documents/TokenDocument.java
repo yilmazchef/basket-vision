@@ -14,7 +14,7 @@ import java.time.LocalDateTime;
 @Data
 @NoArgsConstructor ( force = true, access = AccessLevel.PUBLIC )
 @FieldDefaults ( level = AccessLevel.PRIVATE )
-@Document ( value = "tokens" )
+@Document ( value = "tokens", collection = "tokens" )
 public class TokenDocument {
 
 	@MongoId

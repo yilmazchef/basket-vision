@@ -2,10 +2,7 @@ package be.intec.vision.basket.models.requests;
 
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import lombok.AccessLevel;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.NonNull;
+import lombok.*;
 import lombok.experimental.FieldDefaults;
 
 import java.time.LocalDate;
@@ -14,6 +11,7 @@ import java.util.Set;
 
 @Data
 @NoArgsConstructor ( force = true, access = AccessLevel.PUBLIC )
+@AllArgsConstructor
 @FieldDefaults ( level = AccessLevel.PRIVATE )
 @JsonIgnoreProperties ( ignoreUnknown = true )
 public class CustomerRequest {
