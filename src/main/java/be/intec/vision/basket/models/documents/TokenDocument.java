@@ -14,11 +14,11 @@ import java.time.LocalDateTime;
 @Data
 @NoArgsConstructor ( force = true, access = AccessLevel.PUBLIC )
 @FieldDefaults ( level = AccessLevel.PRIVATE )
-@Document ( value = "media_document" )
+@Document ( value = "tokens" )
 public class TokenDocument {
 
 	@Id
-	String tokenId;
+	String _id;
 
 	@NonNull
 	String hashValue;

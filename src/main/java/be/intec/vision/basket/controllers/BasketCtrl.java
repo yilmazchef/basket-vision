@@ -110,7 +110,7 @@ public class BasketCtrl {
 				.map( basketDocument -> {
 					final var productDocumentList = new LinkedHashSet< ProductDocument >();
 					for ( ProductDocument productDocument : basketDocument.getProducts() ) {
-						if ( Objects.equals( productDocument.getProductId(), productId ) && ( ( productDocument.getQuantity() + quantity ) >= 0 ) ) {
+						if ( Objects.equals( productDocument.get_id(), productId ) && ( ( productDocument.getQuantity() + quantity ) >= 0 ) ) {
 							productDocument.setQuantity( productDocument.getQuantity() + quantity );
 						}
 						productDocumentList.add( productDocument );

@@ -11,7 +11,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Data
 @NoArgsConstructor ( force = true, access = AccessLevel.PUBLIC )
 @FieldDefaults ( level = AccessLevel.PRIVATE )
-@Document ( value = "media_document" )
+@Document ( value = "medias" )
 public class MediaDocument {
 
 	public enum Type {
@@ -22,7 +22,7 @@ public class MediaDocument {
 
 
 	@Id
-	String mediaId;
+	String _id;
 
 	Type type;
 

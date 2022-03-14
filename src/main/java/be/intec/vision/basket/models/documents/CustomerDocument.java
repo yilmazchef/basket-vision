@@ -16,7 +16,7 @@ import java.util.Set;
 @Data
 @NoArgsConstructor ( force = true, access = AccessLevel.PUBLIC )
 @FieldDefaults ( level = AccessLevel.PRIVATE )
-@Document ( value = "customer_document" )
+@Document ( value = "customers" )
 public class CustomerDocument {
 
 	public enum Gender {
@@ -26,7 +26,7 @@ public class CustomerDocument {
 	}
 
 	@Id
-	String customerId;
+	String _id;
 
 	@NonNull
 	String title;

@@ -22,9 +22,9 @@ public interface BasketRepository extends MongoRepository< BasketDocument, Strin
 
 	Boolean existsBySessionAndCustomer_customerIdAndStore_StoreId( final @NotNull String session, final String customer_customerId, final String store_storeId );
 
-	Boolean existsBySessionAndStore_StoreId( final @NotNull String session, final String store_storeId );
+	Boolean existsBySessionAndStore_StoreId( final @NotNull String session, final @NotNull String store_storeId );
 
-	BasketDocument findByStore_StoreId( final String store_storeId );
+	BasketDocument findByStore_StoreId( final @NotNull String store_storeId );
 
 	List< BasketDocument > findBySession( final @NotNull String session );
 

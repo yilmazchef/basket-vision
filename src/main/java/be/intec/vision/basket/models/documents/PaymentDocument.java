@@ -13,7 +13,7 @@ import java.math.BigDecimal;
 @Data
 @NoArgsConstructor ( force = true, access = AccessLevel.PUBLIC )
 @FieldDefaults ( level = AccessLevel.PRIVATE )
-@Document ( value = "payment_document" )
+@Document ( value = "payments" )
 public class PaymentDocument {
 
 	public enum Type {
@@ -29,7 +29,7 @@ public class PaymentDocument {
 	}
 
 	@Id
-	String paymentId;
+	String _id;
 
 	Type type;
 

@@ -10,16 +10,14 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.math.BigDecimal;
-import java.util.Currency;
 import java.util.HashSet;
-import java.util.Locale;
 import java.util.Set;
 
 @Data
 @NoArgsConstructor ( force = true, access = AccessLevel.PUBLIC )
 @FieldDefaults ( level = AccessLevel.PRIVATE )
-@EqualsAndHashCode ( of = { "productId" } )
-@Document ( value = "product_document" )
+@EqualsAndHashCode ( of = { "_id", "ean"} )
+@Document ( value = "products" )
 public class ProductDocument {
 
 	public enum Type {
@@ -29,7 +27,7 @@ public class ProductDocument {
 	}
 
 	@Id
-	String productId;
+	String _id;
 
 	Type type;
 

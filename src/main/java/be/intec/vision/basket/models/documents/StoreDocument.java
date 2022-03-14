@@ -11,7 +11,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Data
 @NoArgsConstructor ( force = true, access = AccessLevel.PUBLIC )
 @FieldDefaults ( level = AccessLevel.PRIVATE )
-@Document ( value = "store_document" )
+@Document ( value = "stores" )
 public class StoreDocument {
 
 	public enum Type {
@@ -21,7 +21,7 @@ public class StoreDocument {
 	}
 
 	@Id
-	String storeId;
+	String _id;
 
 	Type type;
 
