@@ -45,6 +45,8 @@ public class BasketCtrl {
 		}
 		BasketDocument basketDocument = basketMapper.toDocument( request );
 
+		basketDocument.setType( BasketDocument.Type.SHOPPING_CART );
+
 		basketDocument.setTotalPrice(
 				basketDocument.getProducts().stream()
 						.map( p ->

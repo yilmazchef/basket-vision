@@ -64,7 +64,34 @@ public class BasketDocument {
 			BigDecimal.ZERO;
 
 	Set< ProductDocument > products = new LinkedHashSet<>();
+
+
+	public void addProduct( ProductDocument product ) {
+
+		this.products.add( product );
+	}
+
+
+	public void removeProduct( ProductDocument product ) {
+
+		this.products.remove( product );
+	}
+
+
 	Set< PaymentDocument > payments = new LinkedHashSet<>();
+
+
+	public void addPayment( PaymentDocument product ) {
+
+		this.payments.add( product );
+	}
+
+
+	public void removePayment( PaymentDocument product ) {
+
+		this.payments.remove( product );
+	}
+
 
 	@CreatedDate
 	LocalDateTime createdAt; //expiration time 30m
