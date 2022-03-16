@@ -25,7 +25,7 @@ public class BasketResponse {
 		WISH_LIST
 	}
 
-	String basketId;
+	String id;
 
 	Type type;
 

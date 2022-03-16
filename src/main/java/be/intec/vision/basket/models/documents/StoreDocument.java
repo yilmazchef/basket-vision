@@ -14,22 +14,16 @@ import org.springframework.data.mongodb.core.mapping.MongoId;
 @Document ( value = "stores", collection = "stores")
 public class StoreDocument {
 
-	public enum Type {
-		ONLINE,
-		PHYSICAL,
-		ON_DEMAND
-	}
+
 
 	@MongoId
 	String id;
 
-	Type type;
 
 	String name;
 
 	String about;
 
-	String activation;
 
 	ContactDocument contact;
 

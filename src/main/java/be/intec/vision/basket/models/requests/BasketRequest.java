@@ -19,7 +19,7 @@ import java.util.Set;
 @JsonIgnoreProperties ( ignoreUnknown = true )
 public class BasketRequest {
 
-	String basketId;
+	String id;
 
 	public enum Type {
 		SHOPPING_CART,

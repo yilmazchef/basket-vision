@@ -17,7 +17,7 @@ import java.time.LocalDateTime;
 @JsonIgnoreProperties ( ignoreUnknown = true )
 public class TokenResponse {
 
-	String tokenId;
+	String id;
 
 	String hashValue;
 

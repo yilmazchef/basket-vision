@@ -19,11 +19,7 @@ import java.util.Set;
 @Document ( value = "customers" )
 public class CustomerDocument {
 
-	public enum Gender {
-		MALE,
-		FEMALE,
-		OTHER
-	}
+
 
 	@MongoId
 	String id;
@@ -39,7 +35,6 @@ public class CustomerDocument {
 
 	LocalDate dateOfBirth;
 
-	Gender gender;
 
 	Set<TokenDocument> tokens;
 

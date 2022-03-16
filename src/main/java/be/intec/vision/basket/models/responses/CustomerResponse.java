@@ -25,7 +25,7 @@ public class CustomerResponse {
 		OTHER
 	}
 
-	String customerId;
+	String id;
 
 	String title;
 

@@ -15,7 +15,7 @@ import lombok.experimental.FieldDefaults;
 @JsonIgnoreProperties ( ignoreUnknown = true )
 public class MediaRequest {
 
-	String mediaId;
+	String id;
 
 	public enum Type {
 		PNG, JPG, BMP, GIF, // IMAGES

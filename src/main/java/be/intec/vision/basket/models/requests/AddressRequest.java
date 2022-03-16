@@ -16,7 +16,7 @@ import org.springframework.lang.Nullable;
 @JsonIgnoreProperties ( ignoreUnknown = true )
 public class AddressRequest {
 
-	String addressId;
+	String id;
 
 	String doorNo;
 

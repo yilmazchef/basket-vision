@@ -15,7 +15,7 @@ import lombok.experimental.FieldDefaults;
 @JsonIgnoreProperties ( ignoreUnknown = true )
 public class ContactRequest {
 
-	String contactId;
+	String id;
 
 	String email;
 

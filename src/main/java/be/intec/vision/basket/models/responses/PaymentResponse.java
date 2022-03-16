@@ -29,7 +29,7 @@ public class PaymentResponse {
 		KLARNA
 	}
 
-	String paymentId;
+	String id;
 
 	Type type;
 

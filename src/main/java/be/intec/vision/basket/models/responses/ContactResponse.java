@@ -20,7 +20,7 @@ public class ContactResponse {
 		SHIPPING
 	}
 
-	String contactId;
+	String id;
 
 	Type type;
 

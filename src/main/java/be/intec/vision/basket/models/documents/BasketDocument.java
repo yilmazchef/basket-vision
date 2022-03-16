@@ -63,6 +63,14 @@ public class BasketDocument {
 					.reduce( BigDecimal.ZERO, BigDecimal :: add ) :
 			BigDecimal.ZERO;
 
+	@Transient
+			BigDecimal deliveryCost= ( this.products != null ) ?
+			this.products.stream()
+					.filter( Objects :: nonNull )
+					.map( product -> product.getDeliveryCost() )
+					.reduce( BigDecimal.ZERO, BigDecimal :: add ) :
+			BigDecimal.ZERO;
+
 	Set< ProductDocument > products = new LinkedHashSet<>();
 
 

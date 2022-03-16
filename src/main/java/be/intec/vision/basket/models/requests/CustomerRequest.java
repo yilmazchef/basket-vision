@@ -16,7 +16,7 @@ import java.util.Set;
 @JsonIgnoreProperties ( ignoreUnknown = true )
 public class CustomerRequest {
 
-	String customerId;
+	String id;
 
 	public enum Gender {
 		MALE,

@@ -22,7 +22,7 @@ public class MediaResponse {
 	}
 
 
-	String mediaId;
+	String id;
 
 	Type type;
 

@@ -15,9 +15,9 @@ import org.springframework.data.mongodb.core.mapping.MongoId;
 public class MediaDocument {
 
 	public enum Type {
-		PNG, JPG, BMP, GIF, // IMAGES
-		MP4, AVI, MKV,  // VIDEOS
-		STL, OBJ // 3D OBJECTS
+		PNG, JPG, BMP, GIF, JPEG, JFIF, EXIF, TIFF, WEBP, HDR, HEIF, BAT, // IMAGES
+		MP4, AVI, MKV, MOV, WMV, AVCHD, FLV, F4V, SWF, WEBM, MPEG,MPG, MP2, MPE, MPV, OGG, QT,   // VIDEOS
+		STL, OBJ, MF, DS, MAX, COLLADA, VRML, X3D, STEP, FBX   // 3D OBJECTS
 	}
 
 

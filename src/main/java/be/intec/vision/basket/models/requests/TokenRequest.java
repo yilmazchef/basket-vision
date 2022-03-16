@@ -12,7 +12,7 @@ import lombok.experimental.FieldDefaults;
 @JsonIgnoreProperties ( ignoreUnknown = true )
 public class TokenRequest {
 
-	String tokenId;
+	String id;
 
 	String hashValue;
 
