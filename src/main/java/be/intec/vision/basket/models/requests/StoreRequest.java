@@ -15,7 +15,7 @@ import lombok.experimental.FieldDefaults;
 @JsonIgnoreProperties ( ignoreUnknown = true )
 public class StoreRequest {
 
-	String storeId;
+	String id;
 
 	String name;
 

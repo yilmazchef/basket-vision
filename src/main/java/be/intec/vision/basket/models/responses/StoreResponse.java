@@ -21,7 +21,7 @@ public class StoreResponse {
 		ON_DEMAND
 	}
 
-	String storeId;
+	String id;
 
 	Type type;
 

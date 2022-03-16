@@ -39,8 +39,8 @@ public class BasketCtrl {
 	@PostMapping ( HttpEndpoints.POST_SINGLE )
 	public ResponseEntity< BasketResponse > create( @RequestBody @Valid @NotNull BasketRequest request ) {
 
-		if ( ( request.getStore() == null && request.getBasketId() == null ) &&
-				basketRepository.existsBySessionAndId( request.getSession(), request.getBasketId() ) == Boolean.TRUE ) {
+		if ( ( request.getStore() == null && request.getId() == null ) &&
+				basketRepository.existsBySessionAndId( request.getSession(), request.getId() ) == Boolean.TRUE ) {
 			throw new ResponseStatusException( HttpStatus.BAD_REQUEST, HttpFailureMessages.BASKET_EXIST_CANNOT_BE_CREATED.getDescription() );
 		}
 		BasketDocument basketDocument = basketMapper.toDocument( request );
@@ -69,13 +69,13 @@ public class BasketCtrl {
 	@PutMapping ( HttpEndpoints.PUT_SINGLE_BY_ID )
 	public ResponseEntity< BasketResponse > updateById( @RequestBody @NotNull BasketRequest request ) {
 
-		if ( ( request.getStore() == null && request.getBasketId() == null ) &&
-				basketRepository.existsById( request.getBasketId() ) == Boolean.FALSE ) {
+		if ( ( request.getStore() == null && request.getId() == null ) &&
+				basketRepository.existsById( request.getId() ) == Boolean.FALSE ) {
 			throw new ResponseStatusException( HttpStatus.BAD_REQUEST, HttpFailureMessages.BASKET_NOT_FOUND.getDescription() );
 		}
 
 		return basketRepository
-				.findById( request.getBasketId() )
+				.findById( request.getId() )
 				.map( basketDocument -> basketMapper.toDocument( request, basketDocument ) )
 				.map( basketDocument -> {
 					basketDocument.setTotalPrice(

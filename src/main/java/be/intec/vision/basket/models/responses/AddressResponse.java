@@ -20,7 +20,7 @@ public class AddressResponse {
 		SHIPPING
 	}
 
-	String addressId;
+	String id;
 
 	Type type;
 
