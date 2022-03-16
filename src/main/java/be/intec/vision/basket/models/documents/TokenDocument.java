@@ -10,6 +10,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.MongoId;
 
 import java.time.LocalDateTime;
+import java.util.Objects;
 
 @Data
 @NoArgsConstructor ( force = true, access = AccessLevel.PUBLIC )
@@ -29,4 +30,21 @@ public class TokenDocument {
 
 	Boolean active = Boolean.TRUE;
 
+	@Override
+	public boolean equals(Object o) {
+		if (this == o) return true;
+		if (!(o instanceof TokenDocument)) return false;
+		TokenDocument that = (TokenDocument) o;
+		return Objects.equals(getId(), that.getId()) && getHashValue().equals(that.getHashValue());
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(getId(), getHashValue());
+	}
+
+	@Override
+	public String toString() {
+		return this.getHashValue();
+	}
 }
