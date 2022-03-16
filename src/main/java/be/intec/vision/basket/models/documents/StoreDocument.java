@@ -8,6 +8,8 @@ import lombok.experimental.FieldDefaults;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.MongoId;
 
+import java.util.Objects;
+
 @Data
 @NoArgsConstructor ( force = true, access = AccessLevel.PUBLIC )
 @FieldDefaults ( level = AccessLevel.PRIVATE )
@@ -37,4 +39,21 @@ public class StoreDocument {
 
 	Boolean active;
 
+	@Override
+	public boolean equals(Object o) {
+		if (this == o) return true;
+		if (!(o instanceof StoreDocument)) return false;
+		StoreDocument that = (StoreDocument) o;
+		return Objects.equals(getId(), that.getId()) && getName().equals(that.getName()) && getAddress().equals(that.getAddress());
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(getId(), getName(), getAddress());
+	}
+
+	@Override
+	public String toString() {
+		return this.getName();
+	}
 }

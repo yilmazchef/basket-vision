@@ -8,6 +8,8 @@ import lombok.experimental.FieldDefaults;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.MongoId;
 
+import java.util.Objects;
+
 @Data
 @NoArgsConstructor ( force = true, access = AccessLevel.PUBLIC )
 @FieldDefaults ( level = AccessLevel.PRIVATE )
@@ -40,4 +42,21 @@ public class MediaDocument {
 
 	Boolean active = Boolean.TRUE;
 
+	@Override
+	public boolean equals(Object o) {
+		if (this == o) return true;
+		if (!(o instanceof MediaDocument)) return false;
+		MediaDocument that = (MediaDocument) o;
+		return Objects.equals(getId(), that.getId()) && getUrl().equals(that.getUrl());
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(getId(), getUrl());
+	}
+
+	@Override
+	public String toString() {
+		return this.getTitle() + this.getUrl() ;
+	}
 }

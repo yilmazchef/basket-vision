@@ -101,5 +101,27 @@ public class BasketDocument {
 
 	Boolean active = Boolean.TRUE;
 
+	@Override
+	public boolean equals(Object o) {
+		if (this == o) return true;
+		if (!(o instanceof BasketDocument)) return false;
+		BasketDocument that = (BasketDocument) o;
+		return Objects.equals(getId(), that.getId()) && getSession().equals(that.getSession()) && getStore().equals(that.getStore());
+	}
 
+	@Override
+	public int hashCode() {
+		return Objects.hash(getId(), getSession(), getStore());
+	}
+
+	@Override
+	public String toString() {
+		return Objects.requireNonNull(this.getSession()) + ", " +
+				Objects.requireNonNull(this.getCustomer()) + ", " +
+				Objects.requireNonNull(this.getStore()) + ", " +
+				Objects.requireNonNull(this.getTotalPrice()) + ", " +
+				Objects.requireNonNull(this.getTotalTax()) + ", " +
+				Objects.requireNonNull(this.getTotalDiscount()) + ", "+
+				"Expires at " + this.getCreatedAt().plusMinutes(30) + " ." ;
+	}
 }
