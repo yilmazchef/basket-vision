@@ -11,6 +11,7 @@ import org.springframework.data.mongodb.core.mapping.MongoId;
 
 import java.time.LocalDate;
 import java.util.HashSet;
+import java.util.Objects;
 import java.util.Set;
 
 @Data
@@ -47,4 +48,21 @@ public class CustomerDocument {
 
 	Boolean active;
 
+	@Override
+	public boolean equals(Object o) {
+		if (this == o) return true;
+		if (!(o instanceof CustomerDocument)) return false;
+		CustomerDocument that = (CustomerDocument) o;
+		return Objects.equals(getId(), that.getId()) && getFirstName().equals(that.getFirstName()) && getLastName().equals(that.getLastName()) && getDateOfBirth().equals(that.getDateOfBirth()) && getContacts().equals(that.getContacts());
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(getId(), getFirstName(), getLastName(), getDateOfBirth(), getContacts());
+	}
+
+	@Override
+	public String toString() {
+		return this.getFirstName() + " " +  this.getLastName();
+	}
 }

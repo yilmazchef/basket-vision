@@ -11,46 +11,73 @@ import org.springframework.data.mongodb.core.mapping.MongoId;
 
 import java.math.BigDecimal;
 import java.util.HashSet;
+import java.util.Objects;
 import java.util.Set;
 
 @Data
-@NoArgsConstructor ( force = true, access = AccessLevel.PUBLIC )
-@FieldDefaults ( level = AccessLevel.PRIVATE )
-@EqualsAndHashCode ( of = { "_id", "ean"} )
-@Document ( value = "products" )
+@NoArgsConstructor(force = true, access = AccessLevel.PUBLIC)
+@FieldDefaults(level = AccessLevel.PRIVATE)
+@Document(value = "products")
 public class ProductDocument {
 
-	public enum Type {
-		SINGLE,
-		COMBINED,
-		FREE
-	}
+    public enum Type {
+        SINGLE,
+        COMBINED,
+        FREE
+    }
 
-	@MongoId
-	String id;
+    @MongoId
+    String id;
 
-	Type type;
+    Type type;
 
-	String slug;
+    String slug;
 
-	String ean;
+    String ean;
 
-	String title;
+    String title;
 
-	String description;
+    String description;
 
-	Float quantity;
+    Float quantity;
 
-	String currency = "EUR";
+    String currency = "EUR";
 
-	BigDecimal price;
+    BigDecimal price;
+
 
 
 	BigDecimal discount;
 	BigDecimal deliveryCost;
 
-	Set< MediaDocument > medias = new HashSet<>();
 
-	Boolean active;
+  
+
+    Set<MediaDocument> medias = new HashSet<>();
+
+    Boolean active;
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof ProductDocument)) return false;
+        ProductDocument that = (ProductDocument) o;
+        return Objects.equals(getId(), that.getId()) && getSlug().equals(that.getSlug()) && Objects.equals(getEan(), that.getEan());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getId(), getSlug(), getEan());
+    }
+
+    @Override
+    public String toString() {
+        if (this.ean != null) {
+            return this.getEan();
+
+        }
+        return this.getSlug();
+
+    }
 
 }
