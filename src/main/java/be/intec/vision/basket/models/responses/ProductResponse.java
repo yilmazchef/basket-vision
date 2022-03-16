@@ -26,7 +26,7 @@ public class ProductResponse {
 		FREE
 	}
 
-	String productId;
+	String id;
 
 	Type type;
 

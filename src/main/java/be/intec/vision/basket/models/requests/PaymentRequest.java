@@ -17,7 +17,7 @@ import java.math.BigDecimal;
 @JsonIgnoreProperties ( ignoreUnknown = true )
 public class PaymentRequest {
 
-	String paymentId;
+	String id;
 
 	public enum Type {
 		CASH,
