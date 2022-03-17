@@ -69,39 +69,6 @@ public class BasketCtrl {
 	}
 
 
-	// UPDATE_SINGLE_BASKET
-	@PutMapping ( HttpEndpoints.PUT_SINGLE_BY_ID )
-	public ResponseEntity< BasketResponse > updateById( @RequestBody @NotNull BasketRequest request ) {
-
-		if ( ( request.getStore() == null && request.getId() == null ) &&
-				basketRepository.existsById( request.getId() ) == Boolean.FALSE ) {
-			throw new ResponseStatusException( HttpStatus.BAD_REQUEST, HttpFailureMessages.BASKET_NOT_FOUND.getDescription() );
-		}
-
-		return basketRepository
-				.findById( request.getId() )
-				.map( basketDocument -> basketMapper.toDocument( request, basketDocument ) )
-				.map( basketDocument -> {
-					basketDocument.setTotalPrice(
-							basketDocument.getProducts().stream()
-									.map( p ->
-											p.getPrice().
-													multiply( BigDecimal.valueOf( p.getQuantity() ) )
-													.multiply( BigDecimal.valueOf( 100 ).subtract( p.getDiscount() ) )
-													.divide( BigDecimal.valueOf( 100 ) ) ).
-									reduce( BigDecimal.ZERO, BigDecimal :: add )
-					);
-					return basketDocument;
-				} )
-				.map( basketDocument -> basketRepository.save( basketDocument ) )
-				.map( basketDocument -> basketMapper.toResponse( basketDocument ) )
-				.map( basketResponse -> ResponseEntity.status( HttpStatus.ACCEPTED ).body( basketResponse ) )
-				.orElseThrow( () -> {
-					throw new ResponseStatusException( HttpStatus.NOT_ACCEPTABLE, HttpFailureMessages.BASKET_DOES_NOT_EXISTS_CANNOT_BE_UPDATED.getDescription() );
-				} );
-	}
-
-
 	@PutMapping ( HttpEndpoints.PATCH_SINGLE_BY_ID )
 	public ResponseEntity< BasketResponse > updateProductQuantity( @RequestParam ( "basketId" ) @NotNull String basketId,
 	                                                               @RequestParam ( "productId" ) @NotNull String productId,
