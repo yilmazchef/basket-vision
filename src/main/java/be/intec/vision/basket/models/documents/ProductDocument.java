@@ -52,7 +52,7 @@ public class ProductDocument {
 	BigDecimal deliveryCost=BigDecimal.ZERO;
 
 
-
+  BigDecimal tax=BigDecimal.ZERO;
 
 
     Set<MediaDocument> medias = new HashSet<>();
