@@ -16,17 +16,14 @@ import org.springframework.data.mongodb.core.mapping.MongoId;
 public class StoreRequest {
 
 
-	@MongoId
-
-	String id;
 	@NonNull
 	String name;
 
 	String about;
 
-	ContactDocument contact;
+	ContactRequest contact;
 
-	AddressDocument address;
+	AddressRequest address;
 
 
 

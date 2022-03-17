@@ -9,40 +9,41 @@ import org.springframework.data.mongodb.core.mapping.MongoId;
 import org.springframework.lang.Nullable;
 
 @Data
-@NoArgsConstructor ( force = true, access = AccessLevel.PUBLIC )
+@NoArgsConstructor(force = true, access = AccessLevel.PUBLIC)
 @AllArgsConstructor
-@FieldDefaults ( level = AccessLevel.PRIVATE )
-@JsonIgnoreProperties ( ignoreUnknown = true )
+@FieldDefaults(level = AccessLevel.PRIVATE)
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class AddressRequest {
 
 
-	public enum Type {
-		BILLING,
-		SHIPPING,
-		ALL
-	}
+    public enum Type {
+        BILLING,
+        SHIPPING,
+        ALL
+    }
 
-	@MongoId
-	String id;
+    Type type;
 
-	Type type;
+    String doorNo;
 
-	String doorNo;
-	@NonNull
-	String buildingNo;
-	@NonNull
-	String street;
+    @NonNull
+    String buildingNo;
 
-	String municipality;
-	@NonNull
-	String postCode;
-	@NonNull
-	String city;
+    @NonNull
+    String street;
 
-	String region;
-	@NonNull
-	String country;
+    String municipality;
 
+    @NonNull
+    String postCode;
+
+    @NonNull
+    String city;
+
+    String region;
+
+    @NonNull
+    String country;
 
 
 }

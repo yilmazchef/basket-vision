@@ -1,33 +1,23 @@
 {
-  "title": "Mr.",
-  "firstName": "Chris",
-  "lastName": "Doe",
-  "dateOfBirth": "1986-03-11",
-  "tokens": [
-    {
-      "hashValue": "1234567890qwertyuıop"
-    }
-  ],
-  "activation": "bg98ge7nrgert84vrun42rv23uov2n3pr2",
+  "title": "Mrs.",
+  "firstName": "Johns",
+  "lastName": "Mary",
+  "dateOfBirth": "1990-01-21",
   "addresses": [
     {
-      "doorNo": "5",
-      "buildingNo": "18",
-      "street": "Langestraat",
-      "municipality": "Wilsele",
-      "postCode": "3012",
-      "city": "Leuven",
-      "region": "Oost-Vlaanderen",
-      "country": "Belgie",
-
-      "latitude": "12.843642374",
-      "longitude": "4.63245273"
+      "buildingNo": "11",
+      "street": "Kortestraat",
+      "municipality": "Atwerpen",
+      "postCode": "2000",
+      "city": "Antwerpen",
+      "region": "Antwerpen",
+      "country": "Belgie"
     }
   ],
   "contacts": [
     {
-      "email": "chris@gmail.com",
-      "phone": "0466128866"
+      "email": "mary@gmail.com",
+      "phone": "0475968574"
     }
   ]
 }
