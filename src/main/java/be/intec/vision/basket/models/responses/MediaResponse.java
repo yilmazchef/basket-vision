@@ -1,12 +1,14 @@
 package be.intec.vision.basket.models.responses;
 
 
+import be.intec.vision.basket.models.documents.MediaDocument;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.experimental.FieldDefaults;
+import org.springframework.data.mongodb.core.mapping.MongoId;
 
 @Data
 @NoArgsConstructor ( force = true, access = AccessLevel.PUBLIC )
@@ -16,13 +18,15 @@ import lombok.experimental.FieldDefaults;
 public class MediaResponse {
 
 	public enum Type {
-		PNG, JPG, BMP, GIF, // IMAGES
-		MP4, AVI, MKV,  // VIDEOS
-		STL, OBJ // 3D OBJECTS
+		PNG, JPG, BMP, GIF, JPEG, JFIF, EXIF, TIFF, WEBP, HDR, HEIF, BAT, // IMAGES
+		MP4, AVI, MKV, MOV, WMV, AVCHD, FLV, F4V, SWF, WEBM, MPEG,MPG, MP2, MPE, MPV, OGG, QT,   // VIDEOS
+		STL, OBJ, MF, DS, MAX, COLLADA, VRML, X3D, STEP, FBX   // 3D OBJECTS
 	}
 
 
-	String mediaId;
+
+	@MongoId
+	String id;
 
 	Type type;
 
@@ -38,6 +42,6 @@ public class MediaResponse {
 
 	Boolean isExternal;
 
-	Boolean active = Boolean.TRUE;
+	Boolean active;
 
 }

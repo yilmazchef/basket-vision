@@ -4,6 +4,9 @@ package be.intec.vision.basket.models.requests;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
+import org.springframework.data.mongodb.core.mapping.MongoId;
+
+import java.time.LocalDateTime;
 
 @Data
 @NoArgsConstructor ( force = true, access = AccessLevel.PUBLIC )
@@ -12,8 +15,18 @@ import lombok.experimental.FieldDefaults;
 @JsonIgnoreProperties ( ignoreUnknown = true )
 public class TokenRequest {
 
-	String tokenId;
 
+	@MongoId
+	String id;
+
+	@NonNull
 	String hashValue;
+
+	LocalDateTime createdAt;
+
+	LocalDateTime updatedAt;
+
+	Boolean active;
+
 
 }

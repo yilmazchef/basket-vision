@@ -1,17 +1,22 @@
 package be.intec.vision.basket.models.responses;
 
 
+import be.intec.vision.basket.models.documents.BasketDocument;
+import be.intec.vision.basket.models.documents.CustomerDocument;
+import be.intec.vision.basket.models.documents.StoreDocument;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.experimental.FieldDefaults;
+import org.springframework.data.mongodb.core.mapping.MongoId;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.LinkedHashSet;
 import java.util.Set;
+import java.util.UUID;
 
 @Data
 @NoArgsConstructor ( force = true, access = AccessLevel.PUBLIC )
@@ -25,15 +30,17 @@ public class BasketResponse {
 		WISH_LIST
 	}
 
-	String basketId;
+
+	@MongoId
+	String id;
 
 	Type type;
 
 	String session;
 
-	CustomerResponse customer;
+	CustomerDocument customer;
 
-	StoreResponse store;
+	StoreDocument store;
 
 	BigDecimal totalPrice;
 	BigDecimal totalTax;
@@ -46,6 +53,6 @@ public class BasketResponse {
 
 	LocalDateTime updatedAt;
 
-	Boolean active = Boolean.TRUE;
+	Boolean active ;
 
 }

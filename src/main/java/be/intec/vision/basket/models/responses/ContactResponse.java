@@ -1,12 +1,16 @@
 package be.intec.vision.basket.models.responses;
 
 
+import be.intec.vision.basket.models.documents.ContactDocument;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.experimental.FieldDefaults;
+import org.springframework.data.mongodb.core.mapping.MongoId;
+
+import java.util.UUID;
 
 @Data
 @NoArgsConstructor ( force = true, access = AccessLevel.PUBLIC )
@@ -15,19 +19,25 @@ import lombok.experimental.FieldDefaults;
 @JsonIgnoreProperties ( ignoreUnknown = true )
 public class ContactResponse {
 
-	public enum Type{
+
+
+	public enum Type {
 		BILLING,
-		SHIPPING
+		SHIPPING,
+		ALL
 	}
 
-	String contactId;
+
+	@MongoId
+	String id;
 
 	Type type;
 
 	String email;
 
 	String phone;
+	String activation;
 
-	Boolean active = Boolean.TRUE;
+	Boolean active;
 
 }

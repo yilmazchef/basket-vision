@@ -2,11 +2,9 @@ package be.intec.vision.basket.models.responses;
 
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import lombok.AccessLevel;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import lombok.experimental.FieldDefaults;
+import org.springframework.data.mongodb.core.mapping.MongoId;
 
 import java.time.LocalDateTime;
 
@@ -17,14 +15,17 @@ import java.time.LocalDateTime;
 @JsonIgnoreProperties ( ignoreUnknown = true )
 public class TokenResponse {
 
-	String tokenId;
 
+	@MongoId
+	String id;
+
+	@NonNull
 	String hashValue;
 
 	LocalDateTime createdAt;
 
 	LocalDateTime updatedAt;
 
-	Boolean active = Boolean.TRUE;
+	Boolean active;
 
 }

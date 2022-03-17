@@ -12,10 +12,12 @@ import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.MongoId;
 
 import java.math.BigDecimal;
+import java.rmi.server.UID;
 import java.time.LocalDateTime;
 import java.util.LinkedHashSet;
 import java.util.Objects;
 import java.util.Set;
+import java.util.UUID;
 
 @Data
 @NoArgsConstructor ( force = true, access = AccessLevel.PUBLIC )
@@ -31,9 +33,9 @@ public class BasketDocument {
 	@MongoId
 	String id;
 
-	Type type;
+	Type type=Type.SHOPPING_CART;
 
-	String session;
+	String session= UUID.randomUUID().toString();
 
 	CustomerDocument customer;
 
@@ -60,6 +62,14 @@ public class BasketDocument {
 			this.products.stream()
 					.filter( Objects :: nonNull )
 					.map( product -> product.getDiscount() )
+					.reduce( BigDecimal.ZERO, BigDecimal :: add ) :
+			BigDecimal.ZERO;
+
+	@Transient
+			BigDecimal deliveryCost= ( this.products != null ) ?
+			this.products.stream()
+					.filter( Objects :: nonNull )
+					.map( product -> product.getDeliveryCost() )
 					.reduce( BigDecimal.ZERO, BigDecimal :: add ) :
 			BigDecimal.ZERO;
 
@@ -101,5 +111,27 @@ public class BasketDocument {
 
 	Boolean active = Boolean.TRUE;
 
+	@Override
+	public boolean equals(Object o) {
+		if (this == o) return true;
+		if (!(o instanceof BasketDocument)) return false;
+		BasketDocument that = (BasketDocument) o;
+		return Objects.equals(getId(), that.getId()) && getSession().equals(that.getSession()) && getStore().equals(that.getStore());
+	}
 
+	@Override
+	public int hashCode() {
+		return Objects.hash(getId(), getSession(), getStore());
+	}
+
+	@Override
+	public String toString() {
+		return Objects.requireNonNull(this.getSession()) + ", " +
+				Objects.requireNonNull(this.getCustomer()) + ", " +
+				Objects.requireNonNull(this.getStore()) + ", " +
+				Objects.requireNonNull(this.getTotalPrice()) + ", " +
+				Objects.requireNonNull(this.getTotalTax()) + ", " +
+				Objects.requireNonNull(this.getTotalDiscount()) + ", "+
+				"Expires at " + this.getCreatedAt().plusMinutes(30) + " ." ;
+	}
 }
