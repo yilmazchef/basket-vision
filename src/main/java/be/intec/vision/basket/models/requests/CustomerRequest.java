@@ -15,51 +15,39 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Data
-@NoArgsConstructor ( force = true, access = AccessLevel.PUBLIC )
+@NoArgsConstructor(force = true, access = AccessLevel.PUBLIC)
 @AllArgsConstructor
-@FieldDefaults ( level = AccessLevel.PRIVATE )
-@JsonIgnoreProperties ( ignoreUnknown = true )
+@FieldDefaults(level = AccessLevel.PRIVATE)
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class CustomerRequest {
 
 
-	public enum Type {
-		INDIVIDUAL, COMPANY}
+    public enum Type {
+        INDIVIDUAL, COMPANY
+    }
 
 
+    Type type;
 
-	public enum Gender {
-		MALE,
-		FEMALE,
-		OTHER
+    String company;
 
-	}
+    String title;
 
-	@MongoId
-	String id;
+    @NonNull
+    String firstName;
 
-	Type type;
+    @NonNull
+    String lastName;
 
-	String company;
+    LocalDate dateOfBirth;
 
-	String title;
+    Set<String> tokens;
 
-	@NonNull
-	String firstName;
+    String activation;
 
-	@NonNull
-	String lastName;
+    Set<AddressRequest> addresses = new HashSet<>();
 
-	LocalDate dateOfBirth;
-
-	Set<TokenDocument> tokens;
-
-	String activation;
-
-	Set<AddressDocument> addresses = new HashSet<>();
-
-	Set<ContactDocument> contacts = new HashSet<>();
-
-
+    Set<ContactRequest> contacts = new HashSet<>();
 
 
 }

@@ -15,47 +15,41 @@ import java.util.Locale;
 import java.util.Set;
 
 @Data
-@NoArgsConstructor ( force = true, access = AccessLevel.PUBLIC )
+@NoArgsConstructor(force = true, access = AccessLevel.PUBLIC)
 @AllArgsConstructor
-@FieldDefaults ( level = AccessLevel.PRIVATE )
-@JsonIgnoreProperties ( ignoreUnknown = true )
+@FieldDefaults(level = AccessLevel.PRIVATE)
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class ProductRequest {
 
 
-	public enum Type {
-		SINGLE,
-		COMBINED,
-		FREE
-	}
+    public enum Type {
+        SINGLE,
+        COMBINED,
+        FREE
+    }
 
-	@MongoId
-	String id;
+    Type type;
 
-	ProductResponse.Type type;
+    String slug;
 
-	String slug;
+    String ean;
 
-	String ean;
+    String title;
 
-	String title;
+    String description;
 
-	String description;
+    Float quantity;
 
-	Float quantity;
+    String currency;
 
-	String currency ;
-	@NonNull
-	BigDecimal price;
+    @NonNull
+    BigDecimal price;
 
-	BigDecimal tax;
+    BigDecimal discount;
 
-	BigDecimal discount;
+    BigDecimal deliveryCost;
 
-	BigDecimal deliveryCost;
-
-
-	Set<MediaDocument> medias = new HashSet<>();
-
+    Set<MediaRequest> medias = new HashSet<>();
 
 
 }

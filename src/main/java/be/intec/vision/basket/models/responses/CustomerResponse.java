@@ -15,42 +15,41 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Data
-@NoArgsConstructor ( force = true, access = AccessLevel.PUBLIC )
+@NoArgsConstructor(force = true, access = AccessLevel.PUBLIC)
 @AllArgsConstructor
-@FieldDefaults ( level = AccessLevel.PRIVATE )
-@JsonIgnoreProperties ( ignoreUnknown = true )
+@FieldDefaults(level = AccessLevel.PRIVATE)
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class CustomerResponse {
 
-	public enum Type {
-		INDIVIDUAL, COMPANY
-	}
+    public enum Type {
+        INDIVIDUAL, COMPANY
+    }
 
 
+    String id;
 
-	String id;
+    Type type;
 
-	Type type;
+    String company;
 
-	String company;
+    String title;
 
-	String title;
 
-	@NonNull
-	String firstName;
+    String firstName;
 
-	@NonNull
-	String lastName;
 
-	LocalDate dateOfBirth;
+    String lastName;
 
-	Set<TokenDocument> tokens;
+    LocalDate dateOfBirth;
 
-	String activation;
+    Set<TokenResponse> tokens;
 
-	Set<AddressDocument> addresses = new HashSet<>();
+    String activation;
 
-	Set<ContactDocument> contacts = new HashSet<>();
+    Set<AddressResponse> addresses = new HashSet<>();
 
-	Boolean active;
+    Set<ContactResponse> contacts = new HashSet<>();
+
+    Boolean active;
 
 }

@@ -13,35 +13,28 @@ import javax.validation.constraints.Min;
 import java.util.UUID;
 
 @Data
-@NoArgsConstructor ( force = true, access = AccessLevel.PUBLIC )
+@NoArgsConstructor(force = true, access = AccessLevel.PUBLIC)
 @AllArgsConstructor
-@FieldDefaults ( level = AccessLevel.PRIVATE )
-@JsonIgnoreProperties ( ignoreUnknown = true )
+@FieldDefaults(level = AccessLevel.PRIVATE)
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class ContactResponse {
 
 
+    public enum Type {
+        BILLING,
+        SHIPPING,
+        ALL
+    }
 
-	public enum Type {
-		BILLING,
-		SHIPPING,
-		ALL
-	}
+    String id;
 
+    Type type;
 
+    String email;
 
-	String id;
+    String phone;
+    String activation;
 
-	Type type;
-
-	@NonNull
-	@Email
-	String email;
-	@NonNull
-	@Min(9)
-	@Max(15)
-	String phone;
-	String activation;
-
-	Boolean active;
+    Boolean active;
 
 }

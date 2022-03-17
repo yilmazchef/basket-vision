@@ -1,0 +1,73 @@
+{
+  "customer": {
+    "title": "Mrs.",
+    "firstName": "Johns",
+    "lastName": "Mary",
+    "dateOfBirth": "1990-01-21",
+    "addresses": [
+      {
+        "buildingNo": "11",
+        "street": "Kortestraat",
+        "municipality": "Atwerpen",
+        "postCode": "2000",
+        "city": "Antwerpen",
+        "region": "Antwerpen",
+        "country": "Belgie"
+      }
+    ],
+    "contacts": [
+      {
+        "email": "mary@gmail.com",
+        "phone": "0475968574"
+      }
+    ]
+  },
+  "store": {
+    "name": "Decathlon",
+    "about": "Sport partner for active life",
+    "contact": [
+      {
+        "email": "contact@decathlon.be",
+        "phone": "0870002266"
+      }
+    ],
+    "address": [
+      {
+        "buildingNo": "270",
+        "street": "Chaussée de Namur",
+        "municipality": "Wavre",
+        "postCode": "1300",
+        "city": "Wavre",
+        "region": "Brabant wallon",
+        "country": "Belgie"
+      }
+    ]
+  },
+  "products": [
+    {
+      "type": "SINGLE",
+      "slug": "https://www.decathlon.be/nl/p/mp/yogaterrae/yoga-mat-pu-rubber-zwart-met-body-line-draagtas/_/R-p-ee61782e-d2ea-4442-8adf-c8510aad291a?mc=ee61782e-d2ea-4442-8adf-c8510aad291a_c1&c=ZWART",
+      "ean": "ee61782e-d2ea-4442",
+      "title": "Yoga Mat",
+      "description": "Anti-slip Yoga Mat",
+      "quantity": 1,
+      "currency": "EUR",
+      "price": 138,
+      "tax": 28.98,
+      "discount": 0,
+      "deliveryCost": 0,
+      "medias": [
+        {
+          "title": "YOGATERRAE yoga mat",
+          "url": "https://contents.mediadecathlon.com/m4046727/k$830ebe96355cb86339562b4e1990370e/sq/yoga-mat-pu-rubber-zwart-met-body-line-draagtas.jpg?format=auto&f=646x646"
+        }
+      ]
+    }
+  ],
+  "payments": [
+    {
+      "type": "CREDIT_CARD",
+      "amount": 138
+    }
+  ]
+}

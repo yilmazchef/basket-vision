@@ -1,17 +1,9 @@
 {
-  "session": "123qwerty",
-  "customer": {
+    "customer": {
     "title": "Mr.",
     "firstName": "John",
     "lastName": "Doe",
-
     "dateOfBirth": "1986-03-11",
-    "tokens": [
-      {
-        "hashValue": "1234567890qwertyuıop"
-      }
-    ],
-    "activation": "bg98ge7nrgert84vrun42rv23uov2n3pr2",
     "addresses": [
       {
         "doorNo": "2",
@@ -22,7 +14,6 @@
         "city": "Gent",
         "region": "Oost-Vlaanderen",
         "country": "Belgie",
-
         "latitude": "12.843642374",
         "longitude": "4.63245273"
       }
@@ -37,11 +28,11 @@
   "store": {
     "name": "Pizza Hut",
     "about": "The best pizzeria in town.",
-    "contact": {
+    "contact":[ {
       "email": "pizza@hut.be",
       "phone": "04687788293"
-    },
-    "address": {
+    }],
+    "address": [{
       "doorNo": "5",
       "buildingNo": "156",
       "street": "Bakeriestraat",
@@ -50,10 +41,9 @@
       "city": "Gent",
       "region": "Oost-Vlaanderen",
       "country": "Belgie",
-
       "latitude": "6.223642374",
       "longitude": "9.23245273"
-    }
+    }]
   },
   "products": [
     {
