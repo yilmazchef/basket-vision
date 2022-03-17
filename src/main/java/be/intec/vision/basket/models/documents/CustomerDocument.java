@@ -43,7 +43,7 @@ public class CustomerDocument {
 
     LocalDate dateOfBirth;
 
-    Set<TokenDocument> tokens;
+    Set<TokenDocument> tokens = new HashSet<>();
 
     String activation= UUID.randomUUID().toString();
 

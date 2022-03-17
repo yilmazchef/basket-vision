@@ -28,11 +28,11 @@
   "store": {
     "name": "Pizza Hut",
     "about": "The best pizzeria in town.",
-    "contact":[ {
+    "contact": {
       "email": "pizza@hut.be",
       "phone": "04687788293"
-    }],
-    "address": [{
+    },
+    "address": {
       "doorNo": "5",
       "buildingNo": "156",
       "street": "Bakeriestraat",
@@ -43,7 +43,7 @@
       "country": "Belgie",
       "latitude": "6.223642374",
       "longitude": "9.23245273"
-    }]
+    }
   },
   "products": [
     {
@@ -61,11 +61,7 @@
       "medias": [
         {
           "title": "Pizza margherita",
-          "type": "PNG",
-          "altText": "Large size pizza margherita",
-          "width": "240px",
-          "height": "240px",
-          "url": "https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fvitaitaliantours.com%2Fwp-content%2Fuploads%2F2016%2F03%2FNeapolitan-Pizza-Margherita.jpg",
+          "url": "https://images.prismic.io/dcm-article/367fbacf-e35c-4089-82e2-52c8908de77f_KALENJI+HR+500.jpg",
           "isExternal": true
         }
       ]

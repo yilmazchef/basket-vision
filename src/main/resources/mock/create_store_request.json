@@ -1,13 +1,13 @@
 {
   "name": "Decathlon",
   "about": "Sport partner for active life",
-  "contact": [
+  "contact":
     {
       "email": "contact@decathlon.be",
       "phone": "0870002266"
     }
-  ],
-  "address": [
+  ,
+  "address":
     {
       "buildingNo": "270",
       "street": "Chaussée de Namur",
@@ -17,5 +17,5 @@
       "region": "Brabant wallon",
       "country": "Belgie"
     }
-  ]
+
 }

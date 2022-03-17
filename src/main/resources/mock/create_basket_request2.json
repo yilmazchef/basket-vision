@@ -25,13 +25,13 @@
   "store": {
     "name": "Decathlon",
     "about": "Sport partner for active life",
-    "contact": [
+    "contact":
       {
         "email": "contact@decathlon.be",
         "phone": "0870002266"
       }
-    ],
-    "address": [
+    ,
+    "address":
       {
         "buildingNo": "270",
         "street": "Chaussée de Namur",
@@ -41,7 +41,7 @@
         "region": "Brabant wallon",
         "country": "Belgie"
       }
-    ]
+
   },
   "products": [
     {
@@ -59,7 +59,8 @@
       "medias": [
         {
           "title": "YOGATERRAE yoga mat",
-          "url": "https://contents.mediadecathlon.com/m4046727/k$830ebe96355cb86339562b4e1990370e/sq/yoga-mat-pu-rubber-zwart-met-body-line-draagtas.jpg?format=auto&f=646x646"
+          "url": "https://contents.mediadecathlon.com/m4046727/k$830ebe96355cb86339562b4e1990370e/sq/yoga-mat-pu-rubber-zwart-met-body-line-draagtas.jpg"
+
         }
       ]
     }

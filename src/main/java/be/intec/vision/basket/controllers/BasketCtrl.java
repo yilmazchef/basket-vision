@@ -52,11 +52,10 @@ public class BasketCtrl {
     @PostMapping(HttpEndpoints.POST_SINGLE)
     public ResponseEntity<BasketResponse> create(@RequestBody @Valid @NotNull BasketRequest request) {
 
-
-        if ((request.getStore() == null && request.getId() == null) &&
-                basketRepository.existsBySessionAndId(request.getSession(), request.getId()) == Boolean.TRUE) {
+        if (request.getStore() == null) {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, HttpFailureMessages.BASKET_EXIST_CANNOT_BE_CREATED.getDescription());
         }
+
         BasketDocument basketDocument = basketMapper.toDocument(request);
 
         basketDocument.setType(BasketDocument.Type.SHOPPING_CART);
