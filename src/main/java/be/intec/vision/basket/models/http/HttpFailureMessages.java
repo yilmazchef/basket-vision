@@ -50,7 +50,8 @@ public enum HttpFailureMessages {
 	BASKET_TITLE_IS_REQUIRED( "Basket title is required" ),
 	BASKET_ALREADY_EXIST( "The basket you wanted to create already exists\"" ),
 	SESSION_IS_REQUIRED( "" ),
-	STORE_ID_IS_REQUIRED( "" );
+	STORE_ID_IS_REQUIRED( "" ),
+	CUSTOMER_ID_NOT_EXISTS("");
 
 	private final String description;
 }
