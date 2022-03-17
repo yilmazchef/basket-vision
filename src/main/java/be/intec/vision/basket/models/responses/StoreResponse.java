@@ -13,25 +13,23 @@ import lombok.experimental.FieldDefaults;
 import org.springframework.data.mongodb.core.mapping.MongoId;
 
 @Data
-@NoArgsConstructor ( force = true, access = AccessLevel.PUBLIC )
+@NoArgsConstructor(force = true, access = AccessLevel.PUBLIC)
 @AllArgsConstructor
-@FieldDefaults ( level = AccessLevel.PRIVATE )
-@JsonIgnoreProperties ( ignoreUnknown = true )
+@FieldDefaults(level = AccessLevel.PRIVATE)
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class StoreResponse {
 
 
+    String id;
 
-	String id;
+    String name;
 
-		@NonNull
-	String name;
+    String about;
 
-	String about;
+    ContactResponse contact;
 
-	ContactDocument contact;
+    AddressResponse address;
 
-	AddressDocument address;
-
-	Boolean active;
+    Boolean active;
 
 }

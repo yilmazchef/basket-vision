@@ -1,0 +1,21 @@
+{
+  "name": "Decathlon",
+  "about": "Sport partner for active life",
+  "contact": [
+    {
+      "email": "contact@decathlon.be",
+      "phone": "0870002266"
+    }
+  ],
+  "address": [
+    {
+      "buildingNo": "270",
+      "street": "Chaussée de Namur",
+      "municipality": "Wavre",
+      "postCode": "1300",
+      "city": "Wavre",
+      "region": "Brabant wallon",
+      "country": "Belgie"
+    }
+  ]
+}

@@ -19,40 +19,38 @@ import java.util.Set;
 import java.util.UUID;
 
 @Data
-@NoArgsConstructor ( force = true, access = AccessLevel.PUBLIC )
+@NoArgsConstructor(force = true, access = AccessLevel.PUBLIC)
 @AllArgsConstructor
-@FieldDefaults ( level = AccessLevel.PRIVATE )
-@JsonIgnoreProperties ( ignoreUnknown = true )
+@FieldDefaults(level = AccessLevel.PRIVATE)
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class BasketResponse {
 
-	public enum Type {
-		SHOPPING_CART,
-		WISH_LIST
-	}
+    public enum Type {
+        SHOPPING_CART,
+        WISH_LIST
+    }
 
+    String id;
 
+    Type type;
 
-	String id;
+    String session;
 
-	Type type;
+    CustomerResponse customer;
 
-	String session;
+    StoreResponse store;
 
-	CustomerDocument customer;
+    BigDecimal totalPrice;
+    BigDecimal totalTax;
+    BigDecimal totalDiscount;
 
-	StoreDocument store;
+    Set<ProductResponse> products = new LinkedHashSet<>();
+    Set<PaymentResponse> payments = new LinkedHashSet<>();
 
-	BigDecimal totalPrice;
-	BigDecimal totalTax;
-	BigDecimal totalDiscount;
+    LocalDateTime createdAt; //expiration time 30m
 
-	Set< ProductResponse > products = new LinkedHashSet<>();
-	Set< PaymentResponse > payments = new LinkedHashSet<>();
+    LocalDateTime updatedAt;
 
-	LocalDateTime createdAt; //expiration time 30m
-
-	LocalDateTime updatedAt;
-
-	Boolean active ;
+    Boolean active;
 
 }

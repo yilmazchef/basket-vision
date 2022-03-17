@@ -43,14 +43,11 @@ public class PaymentRequest {
 
 	}
 
-	@MongoId
-	String id;
 
-	PaymentResponse.Type type;
+	Type type;
 
 	BigDecimal amount;
 
-	Boolean isPaid;
 
 
 

@@ -18,47 +18,44 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Data
-@NoArgsConstructor ( force = true, access = AccessLevel.PUBLIC )
+@NoArgsConstructor(force = true, access = AccessLevel.PUBLIC)
 @AllArgsConstructor
-@FieldDefaults ( level = AccessLevel.PRIVATE )
-@JsonIgnoreProperties ( ignoreUnknown = true )
+@FieldDefaults(level = AccessLevel.PRIVATE)
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class ProductResponse {
 
-	public enum Type {
-		SINGLE,
-		COMBINED,
-		FREE
-	}
+    public enum Type {
+        SINGLE,
+        COMBINED,
+        FREE
+    }
 
+    String id;
 
+    Type type;
 
-	String id;
+    String slug;
 
-	Type type;
+    String ean;
 
-	String slug;
+    String title;
 
-	String ean;
+    String description;
 
-	String title;
+    Float quantity;
 
-	String description;
+    String currency;
 
-	Float quantity;
+    BigDecimal price;
 
-	String currency ;
-	@NonNull
-	BigDecimal price;
+    BigDecimal tax;
 
-	BigDecimal tax;
+    BigDecimal discount;
 
-	BigDecimal discount;
+    BigDecimal deliveryCost;
 
-	BigDecimal deliveryCost;
+    Set<MediaResponse> medias = new HashSet<>();
 
-
-	Set<MediaDocument> medias = new HashSet<>();
-
-	Boolean active;
+    Boolean active;
 
 }

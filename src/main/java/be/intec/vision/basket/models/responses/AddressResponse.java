@@ -10,44 +10,42 @@ import org.springframework.data.mongodb.core.mapping.MongoId;
 import java.util.UUID;
 
 @Data
-@NoArgsConstructor ( force = true, access = AccessLevel.PUBLIC )
+@NoArgsConstructor(force = true, access = AccessLevel.PUBLIC)
 @AllArgsConstructor
-@FieldDefaults ( level = AccessLevel.PRIVATE )
-@JsonIgnoreProperties ( ignoreUnknown = true )
+@FieldDefaults(level = AccessLevel.PRIVATE)
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class AddressResponse {
 
-	public enum Type {
-		BILLING,
-		SHIPPING,
-		ALL
-	}
+    public enum Type {
+        BILLING,
+        SHIPPING,
+        ALL
+    }
 
+    String id;
 
-	String id;
+    Type type;
 
-	Type type ;
+    String doorNo;
 
-	String doorNo;
-	@NonNull
-	String buildingNo;
-	@NonNull
-	String street;
+    String buildingNo;
 
-	String municipality;
-	@NonNull
-	String postCode;
-	@NonNull
-	String city;
+    String street;
 
-	String region;
-	@NonNull
-	String country;
+    String municipality;
 
+    String postCode;
 
-	String latitude;
+    String city;
 
-	String longitude;
-	String activation ;
+    String region;
 
-	Boolean active;
+    String country;
+
+    String latitude;
+
+    String longitude;
+    String activation;
+
+    Boolean active;
 }

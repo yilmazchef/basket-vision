@@ -12,32 +12,29 @@ import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 
 @Data
-@NoArgsConstructor ( force = true, access = AccessLevel.PUBLIC )
+@NoArgsConstructor(force = true, access = AccessLevel.PUBLIC)
 @AllArgsConstructor
-@FieldDefaults ( level = AccessLevel.PRIVATE )
-@JsonIgnoreProperties ( ignoreUnknown = true )
+@FieldDefaults(level = AccessLevel.PRIVATE)
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class ContactRequest {
 
 
-	public enum Type {
-		BILLING,
-		SHIPPING,
-		ALL
-	}
+    public enum Type {
+        BILLING,
+        SHIPPING,
+        ALL
+    }
 
-	@MongoId
-	String id;
+    Type type;
 
-	Type type;
+    @NonNull
+    @Email
+    String email;
 
 	@NonNull
-	@Email
-	String email;
-	@NonNull
-	@Min(9)
-	@Max(15)
-	String phone;
-
+    @Min(9)
+    @Max(15)
+    String phone;
 
 
 }

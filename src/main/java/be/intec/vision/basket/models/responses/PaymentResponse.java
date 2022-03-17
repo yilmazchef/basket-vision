@@ -13,45 +13,44 @@ import org.springframework.data.mongodb.core.mapping.MongoId;
 import java.math.BigDecimal;
 
 @Data
-@NoArgsConstructor ( force = true, access = AccessLevel.PUBLIC )
+@NoArgsConstructor(force = true, access = AccessLevel.PUBLIC)
 @AllArgsConstructor
-@FieldDefaults ( level = AccessLevel.PRIVATE )
-@JsonIgnoreProperties ( ignoreUnknown = true )
+@FieldDefaults(level = AccessLevel.PRIVATE)
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class PaymentResponse {
 
-	public enum Type {
-		CASH,
-		CREDIT_CARD,
-		DEBIT_CARD,
-		PREPAID_CARD,
-		PAYPAL,
-		PAYPAL_GUEST_CHECKOUT,
-		AMAZON_PAY,
-		BANK_TRANSFER,
-		APPLE_WALLET,
-		GOOGLE_PAY,
-		KLARNA,
-		GIFTCARD,
-		BITCOIN,
-		ETHEREUM,
-		COD,
-		AMERICAN_EXPRESS,
-		UNION_PAY,
-		QIWI,
-		SKRILL
+    public enum Type {
+        CASH,
+        CREDIT_CARD,
+        DEBIT_CARD,
+        PREPAID_CARD,
+        PAYPAL,
+        PAYPAL_GUEST_CHECKOUT,
+        AMAZON_PAY,
+        BANK_TRANSFER,
+        APPLE_WALLET,
+        GOOGLE_PAY,
+        KLARNA,
+        GIFTCARD,
+        BITCOIN,
+        ETHEREUM,
+        COD,
+        AMERICAN_EXPRESS,
+        UNION_PAY,
+        QIWI,
+        SKRILL
 
-	}
+    }
 
 
+    String id;
 
-	String id;
+    Type type;
 
-	Type type;
+    BigDecimal amount;
 
-	BigDecimal amount;
+    Boolean isPaid;
 
-	Boolean isPaid;
-
-	Boolean active;
+    Boolean active;
 
 }

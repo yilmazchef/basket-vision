@@ -32,23 +32,20 @@ public class BasketRequest {
 		WISH_LIST
 	}
 
-	@MongoId
-	String id;
-
 	Type type;
 
 	String session;
 
-	CustomerDocument customer;
+	CustomerRequest customer;
 
-	StoreDocument store;
+	StoreRequest store;
 
 	BigDecimal totalPrice;
 	BigDecimal totalTax;
 	BigDecimal totalDiscount;
 
-	Set<ProductResponse> products = new LinkedHashSet<>();
-	Set<PaymentResponse> payments = new LinkedHashSet<>();
+	Set<ProductRequest> products = new LinkedHashSet<>();
+	Set<PaymentRequest> payments = new LinkedHashSet<>();
 
 	LocalDateTime createdAt; //expiration time 30m
 
