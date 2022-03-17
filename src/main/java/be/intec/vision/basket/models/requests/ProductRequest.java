@@ -1,12 +1,15 @@
 package be.intec.vision.basket.models.requests;
 
 
+import be.intec.vision.basket.models.documents.MediaDocument;
+import be.intec.vision.basket.models.responses.ProductResponse;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.experimental.FieldDefaults;
+import org.springframework.data.mongodb.core.mapping.MongoId;
 
 import java.math.BigDecimal;
 import java.util.Currency;
@@ -21,7 +24,6 @@ import java.util.Set;
 @JsonIgnoreProperties ( ignoreUnknown = true )
 public class ProductRequest {
 
-	String id;
 
 	public enum Type {
 		SINGLE,
@@ -29,7 +31,10 @@ public class ProductRequest {
 		FREE
 	}
 
-	Type type;
+	@MongoId
+	String id;
+
+	ProductResponse.Type type;
 
 	String slug;
 
@@ -41,7 +46,7 @@ public class ProductRequest {
 
 	Float quantity;
 
-	String currency;
+	String currency ;
 
 	BigDecimal price;
 
@@ -49,6 +54,11 @@ public class ProductRequest {
 
 	BigDecimal discount;
 
-	Set< MediaRequest > medias = new HashSet<>();
+	BigDecimal deliveryCost;
+
+
+	Set<MediaDocument> medias = new HashSet<>();
+
+	Boolean active;
 
 }

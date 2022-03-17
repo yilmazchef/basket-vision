@@ -15,54 +15,61 @@ import java.util.Objects;
 import java.util.Set;
 
 @Data
-@NoArgsConstructor ( force = true, access = AccessLevel.PUBLIC )
-@FieldDefaults ( level = AccessLevel.PRIVATE )
-@Document ( value = "customers" )
+@NoArgsConstructor(force = true, access = AccessLevel.PUBLIC)
+@FieldDefaults(level = AccessLevel.PRIVATE)
+@Document(value = "customers")
 public class CustomerDocument {
 
 
-
-	@MongoId
-	String id;
-
-	@NonNull
-	String title;
-
-	@NonNull
-	String firstName;
-
-	@NonNull
-	String lastName;
-
-	LocalDate dateOfBirth;
+    public enum Type {
+        INDIVIDUAL, COMPANY
+    }
 
 
-	Set<TokenDocument> tokens;
+    @MongoId
+    String id;
 
-	String activation;
+    Type type;
 
-	Set< AddressDocument > addresses = new HashSet<>();
+    String company;
 
-	Set< ContactDocument > contacts = new HashSet<>();
+    String title;
+
+    @NonNull
+    String firstName;
 
 
-	Boolean active;
+    @NonNull
+    String lastName;
 
-	@Override
-	public boolean equals(Object o) {
-		if (this == o) return true;
-		if (!(o instanceof CustomerDocument)) return false;
-		CustomerDocument that = (CustomerDocument) o;
-		return Objects.equals(getId(), that.getId()) && getFirstName().equals(that.getFirstName()) && getLastName().equals(that.getLastName()) && getDateOfBirth().equals(that.getDateOfBirth()) && getContacts().equals(that.getContacts());
-	}
 
-	@Override
-	public int hashCode() {
-		return Objects.hash(getId(), getFirstName(), getLastName(), getDateOfBirth(), getContacts());
-	}
+    LocalDate dateOfBirth;
 
-	@Override
-	public String toString() {
-		return this.getFirstName() + " " +  this.getLastName();
-	}
+    Set<TokenDocument> tokens;
+
+    String activation;
+
+    Set<AddressDocument> addresses = new HashSet<>();
+
+    Set<ContactDocument> contacts = new HashSet<>();
+
+    Boolean active = Boolean.TRUE;
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof CustomerDocument)) return false;
+        CustomerDocument that = (CustomerDocument) o;
+        return Objects.equals(getId(), that.getId()) && getFirstName().equals(that.getFirstName()) && getLastName().equals(that.getLastName()) && getDateOfBirth().equals(that.getDateOfBirth()) && getContacts().equals(that.getContacts());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getId(), getFirstName(), getLastName(), getDateOfBirth(), getContacts());
+    }
+
+    @Override
+    public String toString() {
+        return this.getFirstName() + " " + this.getLastName();
+    }
 }
