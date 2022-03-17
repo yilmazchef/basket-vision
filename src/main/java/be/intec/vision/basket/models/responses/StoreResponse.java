@@ -24,7 +24,7 @@ public class StoreResponse {
 		PHYSICAL,
 		ON_DEMAND
 	}
-@MongoId
+
 	String id;
 
 	Type type;

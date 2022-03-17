@@ -26,7 +26,7 @@ public class AddressResponse {
 	}
 
 
-	@MongoId
+
 	String id;
 
 	Type type;

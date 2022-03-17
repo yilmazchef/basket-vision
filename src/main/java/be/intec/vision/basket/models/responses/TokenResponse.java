@@ -16,7 +16,7 @@ import java.time.LocalDateTime;
 public class TokenResponse {
 
 
-	@MongoId
+
 	String id;
 
 	@NonNull
