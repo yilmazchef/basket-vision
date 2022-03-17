@@ -15,6 +15,7 @@ import java.time.LocalDateTime;
 @JsonIgnoreProperties ( ignoreUnknown = true )
 public class TokenRequest {
 
+
 	@MongoId
 	String id;
 

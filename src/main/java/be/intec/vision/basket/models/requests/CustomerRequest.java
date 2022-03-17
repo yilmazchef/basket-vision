@@ -21,14 +21,23 @@ import java.util.Set;
 @JsonIgnoreProperties ( ignoreUnknown = true )
 public class CustomerRequest {
 
+
 	public enum Type {
 		INDIVIDUAL, COMPANY
+
+	String id;
+
+	public enum Gender {
+		MALE,
+		FEMALE,
+		OTHER
+
 	}
 
 	@MongoId
 	String id;
 
-	CustomerResponse.Type type;
+Type type;
 
 	String company;
 

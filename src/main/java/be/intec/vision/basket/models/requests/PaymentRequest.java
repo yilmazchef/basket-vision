@@ -19,6 +19,7 @@ import java.math.BigDecimal;
 @JsonIgnoreProperties ( ignoreUnknown = true )
 public class PaymentRequest {
 
+
 	public enum Type {
 		CASH,
 		CREDIT_CARD,

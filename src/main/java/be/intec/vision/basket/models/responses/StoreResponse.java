@@ -18,8 +18,17 @@ import org.springframework.data.mongodb.core.mapping.MongoId;
 @JsonIgnoreProperties ( ignoreUnknown = true )
 public class StoreResponse {
 
-	@MongoId
+
+	public enum Type {
+		ONLINE,
+		PHYSICAL,
+		ON_DEMAND
+	}
+@MongoId
 	String id;
+
+	Type type;
+
 
 	String name;
 

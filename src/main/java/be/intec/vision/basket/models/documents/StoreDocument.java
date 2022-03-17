@@ -21,9 +21,11 @@ public class StoreDocument {
 	@MongoId
 	String id;
 
+
 	String name;
 
 	String about;
+
 
 	ContactDocument contact;
 

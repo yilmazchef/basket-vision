@@ -24,6 +24,7 @@ import java.util.Set;
 @JsonIgnoreProperties ( ignoreUnknown = true )
 public class ProductRequest {
 
+
 	public enum Type {
 		SINGLE,
 		COMBINED,

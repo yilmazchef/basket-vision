@@ -17,6 +17,7 @@ import org.springframework.data.mongodb.core.mapping.MongoId;
 @JsonIgnoreProperties ( ignoreUnknown = true )
 public class ContactRequest {
 
+
 	public enum Type {
 		BILLING,
 		SHIPPING,
@@ -26,7 +27,10 @@ public class ContactRequest {
 	@MongoId
 	String id;
 
-	ContactResponse.Type type;
+	Type type;
+
+	
+
 
 	String email;
 

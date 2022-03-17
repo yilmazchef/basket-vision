@@ -25,6 +25,7 @@ public class CustomerResponse {
 		INDIVIDUAL, COMPANY
 	}
 
+
 	@MongoId
 	String id;
 

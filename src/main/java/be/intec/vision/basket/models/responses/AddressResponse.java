@@ -25,6 +25,7 @@ public class AddressResponse {
 		ALL
 	}
 
+
 	@MongoId
 	String id;
 

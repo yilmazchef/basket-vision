@@ -18,6 +18,7 @@ import org.springframework.lang.Nullable;
 @JsonIgnoreProperties ( ignoreUnknown = true )
 public class AddressRequest {
 
+
 	public enum Type {
 		BILLING,
 		SHIPPING,
@@ -27,7 +28,9 @@ public class AddressRequest {
 	@MongoId
 	String id;
 
-	AddressResponse.Type type;
+	Type type;
+
+	
 
 	String doorNo;
 
@@ -46,7 +49,7 @@ public class AddressRequest {
 	String country;
 
 	String countryCode;
-	//end
+
 	String latitude;
 
 	String longitude;

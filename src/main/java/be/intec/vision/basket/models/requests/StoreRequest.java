@@ -18,7 +18,9 @@ import org.springframework.data.mongodb.core.mapping.MongoId;
 @JsonIgnoreProperties ( ignoreUnknown = true )
 public class StoreRequest {
 
+
 	@MongoId
+
 	String id;
 
 	String name;

@@ -26,6 +26,10 @@ import java.util.Set;
 @JsonIgnoreProperties ( ignoreUnknown = true )
 public class BasketRequest {
 
+
+	
+
+
 	public enum Type {
 		SHOPPING_CART,
 		WISH_LIST
@@ -34,7 +38,7 @@ public class BasketRequest {
 	@MongoId
 	String id;
 
-	BasketResponse.Type type;
+	Type type;
 
 	String session;
 

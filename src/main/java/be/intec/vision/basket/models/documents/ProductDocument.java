@@ -45,11 +45,14 @@ public class ProductDocument {
 
     BigDecimal price;
 
-    BigDecimal tax;
+
 
     BigDecimal discount=BigDecimal.ZERO;
 
 	BigDecimal deliveryCost=BigDecimal.ZERO;
+
+
+
 
 
     Set<MediaDocument> medias = new HashSet<>();

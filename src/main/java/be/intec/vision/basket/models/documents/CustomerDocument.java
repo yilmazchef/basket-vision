@@ -20,9 +20,11 @@ import java.util.Set;
 @Document(value = "customers")
 public class CustomerDocument {
 
+
     public enum Type {
         INDIVIDUAL, COMPANY
     }
+
 
     @MongoId
     String id;
@@ -36,8 +38,10 @@ public class CustomerDocument {
     @NonNull
     String firstName;
 
+
     @NonNull
     String lastName;
+
 
     LocalDate dateOfBirth;
 

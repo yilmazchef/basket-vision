@@ -30,6 +30,7 @@ public class BasketResponse {
 		WISH_LIST
 	}
 
+
 	@MongoId
 	String id;
 
