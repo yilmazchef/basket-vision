@@ -70,6 +70,15 @@ public class BasketCtrl {
 
 
 	@PutMapping ( HttpEndpoints.PATCH_SINGLE_BY_ID )
+	public ResponseEntity< BasketResponse > updateSessionByBasketId( @RequestParam ( "basketId" ) @NotNull String basketId,
+	                                                                 @RequestParam ( "session" ) @NotNull String session ) {
+
+
+		return null;
+	}
+
+
+	@PutMapping ( HttpEndpoints.PATCH_SINGLE_BY_ID )
 	public ResponseEntity< BasketResponse > updateProductQuantity( @RequestParam ( "basketId" ) @NotNull String basketId,
 	                                                               @RequestParam ( "productId" ) @NotNull String productId,
 	                                                               @RequestParam ( "quantity" ) @NotNull Float quantity ) {
@@ -263,7 +272,7 @@ public class BasketCtrl {
 	@GetMapping ( HttpEndpoints.GET_BY_ID )
 	public ResponseEntity< ? > findById( @RequestParam ( "basketId" ) String basketId ) {
 
-		if(basketId == null){
+		if ( basketId == null ) {
 			throw new ResponseStatusException( HttpStatus.BAD_REQUEST, HttpFailureMessages.BASKET_ID_IS_REQUIRED.getDescription() );
 		}
 
@@ -281,11 +290,11 @@ public class BasketCtrl {
 	@GetMapping ( HttpEndpoints.GET_EXISTS_BY_UNIQUE_FIELDS )
 	public ResponseEntity< String > existsByUniqueFields( @RequestParam ( "session" ) String session, @RequestParam ( "storeId" ) String storeId ) {
 
-		if(session == null){
+		if ( session == null ) {
 			throw new ResponseStatusException( HttpStatus.BAD_REQUEST, HttpFailureMessages.SESSION_IS_REQUIRED.getDescription() );
 		}
 
-		if(storeId == null){
+		if ( storeId == null ) {
 			throw new ResponseStatusException( HttpStatus.BAD_REQUEST, HttpFailureMessages.STORE_ID_IS_REQUIRED.getDescription() );
 		}
 
