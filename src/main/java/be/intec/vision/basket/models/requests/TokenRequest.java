@@ -6,6 +6,7 @@ import lombok.*;
 import lombok.experimental.FieldDefaults;
 import org.springframework.data.mongodb.core.mapping.MongoId;
 
+import javax.validation.constraints.FutureOrPresent;
 import java.time.LocalDateTime;
 
 @Data
@@ -22,8 +23,10 @@ public class TokenRequest {
 	@NonNull
 	String hashValue;
 
+	@FutureOrPresent
 	LocalDateTime createdAt;
 
+	@FutureOrPresent
 	LocalDateTime updatedAt;
 
 	Boolean active;

@@ -10,6 +10,10 @@ import lombok.NoArgsConstructor;
 import lombok.experimental.FieldDefaults;
 import org.springframework.data.mongodb.core.mapping.MongoId;
 
+import javax.validation.constraints.Email;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
+
 @Data
 @NoArgsConstructor ( force = true, access = AccessLevel.PUBLIC )
 @AllArgsConstructor
@@ -29,13 +33,16 @@ public class ContactRequest {
 
 	Type type;
 
-	
 
-
+	@Email
 	String email;
 
+	@Min ( 13 )
+	@Max ( 13 )
 	String phone;
+
 	String activation;
 
 	Boolean active;
+
 }
