@@ -21,17 +21,15 @@ public class StoreDocument {
 	@MongoId
 	String id;
 
-
 	String name;
 
 	String about;
-
 
 	ContactDocument contact;
 
 	AddressDocument address;
 
-	Boolean active;
+	Boolean active=Boolean.TRUE;
 
 	@Override
 	public boolean equals(Object o) {

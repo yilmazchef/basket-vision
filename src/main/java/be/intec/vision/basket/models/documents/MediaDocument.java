@@ -26,7 +26,7 @@ public class MediaDocument {
 	@MongoId
 	String id;
 
-	Type type;
+	Type type=Type.PNG;
 
 	String title;
 
@@ -38,7 +38,7 @@ public class MediaDocument {
 
 	String url;
 
-	Boolean isExternal;
+	Boolean isExternal=Boolean.FALSE;
 
 	Boolean active = Boolean.TRUE;
 

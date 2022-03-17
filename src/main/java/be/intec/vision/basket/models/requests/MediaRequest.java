@@ -1,41 +1,61 @@
 package be.intec.vision.basket.models.requests;
 
 
+import be.intec.vision.basket.models.responses.MediaResponse;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.experimental.FieldDefaults;
+import org.springframework.data.mongodb.core.mapping.MongoId;
 
 @Data
-@NoArgsConstructor ( force = true, access = AccessLevel.PUBLIC )
+@NoArgsConstructor(force = true, access = AccessLevel.PUBLIC)
 @AllArgsConstructor
-@FieldDefaults ( level = AccessLevel.PRIVATE )
-@JsonIgnoreProperties ( ignoreUnknown = true )
+@FieldDefaults(level = AccessLevel.PRIVATE)
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class MediaRequest {
 
-	String id;
-
-	public enum Type {
-		PNG, JPG, BMP, GIF, // IMAGES
-		MP4, AVI, MKV,  // VIDEOS
-		STL, OBJ // 3D OBJECTS
-	}
+    public enum Type {
+        PNG, JPG, BMP, GIF, JPEG, JFIF, EXIF, TIFF, WEBP, HDR, HEIF, BAT, // IMAGES
+        MP4, AVI, MKV, MOV, WMV, AVCHD, FLV, F4V, SWF, WEBM, MPEG,MPG, MP2, MPE, MPV, OGG, QT,   // VIDEOS
+        STL, OBJ, MF, DS, MAX, COLLADA, VRML, X3D, STEP, FBX   // 3D OBJECTS
+    }
 
 
-	String title;
+    @MongoId
+    String id;
+    Type type=Type.PNG;
 
-	Type type;
 
-	String altText;
+    String title;
 
-	String width;
+    String altText;
 
-	String height;
+    String width;
 
-	String url;
+    String height;
 
-	Boolean isExternal;
+    String url;
+
+    Boolean isExternal;
+
+    Boolean active;
+
+
+
+    public void setUrl(String url) {
+        String fileName = "student-records.pdf";
+        String fe = "";
+        int i = fileName.lastIndexOf('.');
+        if (i > 0) {
+            fe = fileName.substring(i + 1);
+            this.type = Type.valueOf(fe.toUpperCase());
+        }
+        this.url = url;
+    }
+
+
 
 }

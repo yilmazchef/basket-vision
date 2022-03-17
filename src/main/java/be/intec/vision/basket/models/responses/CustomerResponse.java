@@ -1,12 +1,14 @@
 package be.intec.vision.basket.models.responses;
 
 
+import be.intec.vision.basket.models.documents.AddressDocument;
+import be.intec.vision.basket.models.documents.ContactDocument;
+import be.intec.vision.basket.models.documents.CustomerDocument;
+import be.intec.vision.basket.models.documents.TokenDocument;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import lombok.AccessLevel;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import lombok.experimental.FieldDefaults;
+import org.springframework.data.mongodb.core.mapping.MongoId;
 
 import java.time.LocalDate;
 import java.util.HashSet;
@@ -19,31 +21,34 @@ import java.util.Set;
 @JsonIgnoreProperties ( ignoreUnknown = true )
 public class CustomerResponse {
 
-	public enum Gender {
-		MALE,
-		FEMALE,
-		OTHER
+	public enum Type {
+		INDIVIDUAL, COMPANY
 	}
 
+	@MongoId
 	String id;
+
+	Type type;
+
+	String company;
 
 	String title;
 
+	@NonNull
 	String firstName;
 
+	@NonNull
 	String lastName;
 
 	LocalDate dateOfBirth;
 
-	Gender gender;
-
-	Set< TokenResponse > tokens;
+	Set<TokenDocument> tokens;
 
 	String activation;
 
-	Set< AddressResponse > addresses = new HashSet<>();
+	Set<AddressDocument> addresses = new HashSet<>();
 
-	Set< ContactResponse > contacts = new HashSet<>();
+	Set<ContactDocument> contacts = new HashSet<>();
 
 	Boolean active;
 

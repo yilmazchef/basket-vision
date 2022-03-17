@@ -9,6 +9,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.MongoId;
 
 import java.util.Objects;
+import java.util.UUID;
 
 @Data
 @NoArgsConstructor ( force = true, access = AccessLevel.PUBLIC )
@@ -18,13 +19,14 @@ public class AddressDocument {
 
 	public enum Type {
 		BILLING,
-		SHIPPING
+		SHIPPING,
+		ALL
 	}
 
 	@MongoId
 	String id;
 
-	Type type;
+	Type type= Type.ALL;
 	//start
 	String doorNo;
 
@@ -47,6 +49,7 @@ public class AddressDocument {
 	String latitude;
 
 	String longitude;
+	String activation= UUID.randomUUID().toString();
 
 	Boolean active = Boolean.TRUE;
 //toString -> alle fields hele adres

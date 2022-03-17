@@ -1,14 +1,21 @@
 package be.intec.vision.basket.models.requests;
 
 
+import be.intec.vision.basket.models.documents.CustomerDocument;
+import be.intec.vision.basket.models.documents.StoreDocument;
+import be.intec.vision.basket.models.responses.BasketResponse;
+import be.intec.vision.basket.models.responses.PaymentResponse;
+import be.intec.vision.basket.models.responses.ProductResponse;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.experimental.FieldDefaults;
+import org.springframework.data.mongodb.core.mapping.MongoId;
 
 import java.math.BigDecimal;
+import java.time.LocalDateTime;
 import java.util.LinkedHashSet;
 import java.util.Set;
 
@@ -19,24 +26,33 @@ import java.util.Set;
 @JsonIgnoreProperties ( ignoreUnknown = true )
 public class BasketRequest {
 
-	String id;
-
 	public enum Type {
 		SHOPPING_CART,
 		WISH_LIST
 	}
 
+	@MongoId
+	String id;
+
+	BasketResponse.Type type;
+
 	String session;
 
-	CustomerRequest customer;
+	CustomerDocument customer;
 
-	StoreRequest store;
+	StoreDocument store;
 
 	BigDecimal totalPrice;
 	BigDecimal totalTax;
 	BigDecimal totalDiscount;
 
-	Set< ProductRequest > products = new LinkedHashSet<>();
-	Set< PaymentRequest > payments = new LinkedHashSet<>();
+	Set<ProductResponse> products = new LinkedHashSet<>();
+	Set<PaymentResponse> payments = new LinkedHashSet<>();
+
+	LocalDateTime createdAt; //expiration time 30m
+
+	LocalDateTime updatedAt;
+
+	Boolean active ;
 
 }

@@ -1,12 +1,15 @@
 package be.intec.vision.basket.models.responses;
 
 
+import be.intec.vision.basket.models.documents.MediaDocument;
+import be.intec.vision.basket.models.documents.ProductDocument;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.experimental.FieldDefaults;
+import org.springframework.data.mongodb.core.mapping.MongoId;
 
 import java.math.BigDecimal;
 import java.util.Currency;
@@ -26,6 +29,7 @@ public class ProductResponse {
 		FREE
 	}
 
+	@MongoId
 	String id;
 
 	Type type;
@@ -40,7 +44,7 @@ public class ProductResponse {
 
 	Float quantity;
 
-	String currency;
+	String currency ;
 
 	BigDecimal price;
 
@@ -48,7 +52,10 @@ public class ProductResponse {
 
 	BigDecimal discount;
 
-	Set< MediaResponse > medias = new HashSet<>();
+	BigDecimal deliveryCost;
+
+
+	Set<MediaDocument> medias = new HashSet<>();
 
 	Boolean active;
 

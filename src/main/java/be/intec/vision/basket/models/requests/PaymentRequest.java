@@ -1,12 +1,14 @@
 package be.intec.vision.basket.models.requests;
 
 
+import be.intec.vision.basket.models.responses.PaymentResponse;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.experimental.FieldDefaults;
+import org.springframework.data.mongodb.core.mapping.MongoId;
 
 import java.math.BigDecimal;
 
@@ -17,24 +19,38 @@ import java.math.BigDecimal;
 @JsonIgnoreProperties ( ignoreUnknown = true )
 public class PaymentRequest {
 
-	String id;
-
 	public enum Type {
 		CASH,
 		CREDIT_CARD,
 		DEBIT_CARD,
 		PREPAID_CARD,
 		PAYPAL,
+		PAYPAL_GUEST_CHECKOUT,
+		AMAZON_PAY,
+		BANK_TRANSFER,
 		APPLE_WALLET,
 		GOOGLE_PAY,
-		PAYPAL_GUEST_CHECKOUT,
-		KLARNA
+		KLARNA,
+		GIFTCARD,
+		BITCOIN,
+		ETHEREUM,
+		COD,
+		AMERICAN_EXPRESS,
+		UNION_PAY,
+		QIWI,
+		SKRILL
+
 	}
 
-	Type type;
+	@MongoId
+	String id;
+
+	PaymentResponse.Type type;
 
 	BigDecimal amount;
 
 	Boolean isPaid;
+
+	Boolean active;
 
 }
