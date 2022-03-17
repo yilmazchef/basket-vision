@@ -28,7 +28,7 @@ public class ContactResponse {
 	}
 
 
-	@MongoId
+
 	String id;
 
 	Type type;

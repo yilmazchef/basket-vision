@@ -10,6 +10,11 @@ import be.intec.vision.basket.models.http.HttpEndpoints;
 import be.intec.vision.basket.models.http.HttpFailureMessages;
 import be.intec.vision.basket.models.http.HttpSuccessMessages;
 import be.intec.vision.basket.mappers.BasketMapper;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.media.Content;
+import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.http.HttpStatus;
@@ -35,7 +40,6 @@ public class BasketCtrl {
 	private final BasketMapper basketMapper;
 
 
-	// CREATING_NEW_BASKET
 	@PostMapping ( HttpEndpoints.POST_SINGLE )
 	public ResponseEntity< BasketResponse > create( @RequestBody @Valid @NotNull BasketRequest request ) {
 
@@ -62,39 +66,6 @@ public class BasketCtrl {
 				.body( basketMapper.toResponse(
 						basketRepository.save( basketDocument )
 				) );
-	}
-
-
-	// UPDATE_SINGLE_BASKET
-	@PutMapping ( HttpEndpoints.PUT_SINGLE_BY_ID )
-	public ResponseEntity< BasketResponse > updateById( @RequestBody @NotNull BasketRequest request ) {
-
-		if ( ( request.getStore() == null && request.getId() == null ) &&
-				basketRepository.existsById( request.getId() ) == Boolean.FALSE ) {
-			throw new ResponseStatusException( HttpStatus.BAD_REQUEST, HttpFailureMessages.BASKET_NOT_FOUND.getDescription() );
-		}
-
-		return basketRepository
-				.findById( request.getId() )
-				.map( basketDocument -> basketMapper.toDocument( request, basketDocument ) )
-				.map( basketDocument -> {
-					basketDocument.setTotalPrice(
-							basketDocument.getProducts().stream()
-									.map( p ->
-											p.getPrice().
-													multiply( BigDecimal.valueOf( p.getQuantity() ) )
-													.multiply( BigDecimal.valueOf( 100 ).subtract( p.getDiscount() ) )
-													.divide( BigDecimal.valueOf( 100 ) ) ).
-									reduce( BigDecimal.ZERO, BigDecimal :: add )
-					);
-					return basketDocument;
-				} )
-				.map( basketDocument -> basketRepository.save( basketDocument ) )
-				.map( basketDocument -> basketMapper.toResponse( basketDocument ) )
-				.map( basketResponse -> ResponseEntity.status( HttpStatus.ACCEPTED ).body( basketResponse ) )
-				.orElseThrow( () -> {
-					throw new ResponseStatusException( HttpStatus.NOT_ACCEPTABLE, HttpFailureMessages.BASKET_DOES_NOT_EXISTS_CANNOT_BE_UPDATED.getDescription() );
-				} );
 	}
 
 
@@ -277,26 +248,27 @@ public class BasketCtrl {
 		return ResponseEntity
 				.status( HttpStatus.FOUND )
 				.body( basket.map( basketDocument -> basketMapper.toResponse( basketDocument ) ) );
-
-       /* return ResponseEntity
-                .status(HttpStatus.FOUND)
-                .body(
-                        basketRepository
-                                .findBySessionAndStore_StoreId(session, storeId)
-                                .map(basketDocument -> basketMapper.toResponse(basketDocument))
-                                .map(response -> ResponseEntity.status(HttpStatus.FOUND).body(response))
-                                .orElseThrow(() -> {
-                                    throw new ResponseStatusException(HttpStatus.NOT_FOUND, HttpFailureMessages.BASKET_NOT_FOUND.getDescription());
-                                }));*/
 	}
 
 
-	// GET_BY_ID
+	@Operation ( summary = "Find a basket by its id" )
+	@ApiResponses ( value = {
+			@ApiResponse ( responseCode = "302", description = "Found the basket",
+					content = { @Content ( mediaType = "application/json",
+							schema = @Schema ( implementation = BasketResponse.class ) ) } ),
+			@ApiResponse ( responseCode = "400", description = "Invalid id supplied",
+					content = @Content ),
+			@ApiResponse ( responseCode = "404", description = "Basket not found",
+					content = @Content ) } )
 	@GetMapping ( HttpEndpoints.GET_BY_ID )
-	public ResponseEntity< ? > findById( @RequestParam ( "basketId" ) @NotNull String basketId ) {
+	public ResponseEntity< ? > findById( @RequestParam ( "basketId" ) String basketId ) {
+
+		if(basketId == null){
+			throw new ResponseStatusException( HttpStatus.BAD_REQUEST, HttpFailureMessages.BASKET_ID_IS_REQUIRED.getDescription() );
+		}
 
 		return basketRepository
-				.findById( new String( basketId ) )
+				.findById( basketId )
 				.map( basketDocument -> basketMapper.toResponse( basketDocument ) )
 				.map( response -> ResponseEntity.status( HttpStatus.FOUND ).body( response ) )
 				.orElseThrow( () -> {
@@ -307,7 +279,15 @@ public class BasketCtrl {
 
 	// EXISTS_BY_UNIQUE_FIELDS
 	@GetMapping ( HttpEndpoints.GET_EXISTS_BY_UNIQUE_FIELDS )
-	public ResponseEntity< String > existsByUniqueFields( @RequestParam ( "session" ) @NotNull String session, @RequestParam ( "storeId" ) @NotNull String storeId ) {
+	public ResponseEntity< String > existsByUniqueFields( @RequestParam ( "session" ) String session, @RequestParam ( "storeId" ) String storeId ) {
+
+		if(session == null){
+			throw new ResponseStatusException( HttpStatus.BAD_REQUEST, HttpFailureMessages.SESSION_IS_REQUIRED.getDescription() );
+		}
+
+		if(storeId == null){
+			throw new ResponseStatusException( HttpStatus.BAD_REQUEST, HttpFailureMessages.STORE_ID_IS_REQUIRED.getDescription() );
+		}
 
 		return basketRepository.existsBySessionAndStore_Id( session, storeId )
 				? ResponseEntity.status( HttpStatus.FOUND ).body( HttpSuccessMessages.BASKET_EXISTS.getDescription() )

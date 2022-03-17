@@ -30,7 +30,7 @@ public class ProductResponse {
 	}
 
 
-	@MongoId
+
 	String id;
 
 	Type type;
