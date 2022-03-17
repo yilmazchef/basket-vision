@@ -9,6 +9,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.MongoId;
 
 import java.util.Objects;
+import java.util.UUID;
 
 @Data
 @NoArgsConstructor(force = true, access = AccessLevel.PUBLIC)
@@ -18,17 +19,19 @@ public class ContactDocument {
 
     public enum Type {
         BILLING,
-        SHIPPING
+        SHIPPING,
+        ALL
     }
 
     @MongoId
     String id;
 
-    Type type;
+    Type type=Type.ALL;
 
     String email;
 
     String phone;
+    String activation= UUID.randomUUID().toString();
 
     Boolean active = Boolean.TRUE;
 

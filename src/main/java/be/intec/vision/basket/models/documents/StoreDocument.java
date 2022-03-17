@@ -31,7 +31,7 @@ public class StoreDocument {
 
 	AddressDocument address;
 
-	Boolean active;
+	Boolean active=Boolean.TRUE;
 
 	@Override
 	public boolean equals(Object o) {

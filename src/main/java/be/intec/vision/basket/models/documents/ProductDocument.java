@@ -29,7 +29,7 @@ public class ProductDocument {
     @MongoId
     String id;
 
-    Type type;
+    Type type=Type.SINGLE;
 
     String slug;
 
@@ -39,7 +39,7 @@ public class ProductDocument {
 
     String description;
 
-    Float quantity;
+    Float quantity=1.0f;
 
     String currency = "EUR";
 
@@ -47,14 +47,17 @@ public class ProductDocument {
 
 
 
-    BigDecimal discount;
+    BigDecimal discount=BigDecimal.ZERO;
 
-	BigDecimal deliveryCost;
+	BigDecimal deliveryCost=BigDecimal.ZERO;
+
+
+
 
 
     Set<MediaDocument> medias = new HashSet<>();
 
-    Boolean active;
+    Boolean active=Boolean.TRUE;
 
     @Override
     public boolean equals(Object o) {

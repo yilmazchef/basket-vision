@@ -12,10 +12,12 @@ import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.MongoId;
 
 import java.math.BigDecimal;
+import java.rmi.server.UID;
 import java.time.LocalDateTime;
 import java.util.LinkedHashSet;
 import java.util.Objects;
 import java.util.Set;
+import java.util.UUID;
 
 @Data
 @NoArgsConstructor ( force = true, access = AccessLevel.PUBLIC )
@@ -31,9 +33,9 @@ public class BasketDocument {
 	@MongoId
 	String id;
 
-	Type type;
+	Type type=Type.SHOPPING_CART;
 
-	String session;
+	String session= UUID.randomUUID().toString();
 
 	CustomerDocument customer;
 

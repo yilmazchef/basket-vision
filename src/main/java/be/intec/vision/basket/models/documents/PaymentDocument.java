@@ -23,6 +23,22 @@ public class PaymentDocument {
 		DEBIT_CARD,
 		PREPAID_CARD,
 		PAYPAL,
+
+		PAYPAL_GUEST_CHECKOUT,
+		AMAZON_PAY,
+		BANK_TRANSFER,
+		APPLE_WALLET,
+		GOOGLE_PAY,
+		KLARNA,
+		GIFTCARD,
+		BITCOIN,
+		ETHEREUM,
+		COD,
+	    AMERICAN_EXPRESS,
+		UNION_PAY,
+		QIWI,
+		SKRILL
+
 		AMAZONPAY,
 		BANKTRANSFER,
 		APPLE_WALLET,
@@ -37,18 +53,19 @@ public class PaymentDocument {
 		SKRILL
 
 
+
 	}
 
 	@MongoId
 	String id;
 
-	Type type;
+	Type type=Type.PAYPAL;
 
-	BigDecimal amount;
+	BigDecimal amount=BigDecimal.ZERO;
 
-	Boolean isPaid;
+	Boolean isPaid=Boolean.FALSE;
 
-	Boolean active;
+	Boolean active=Boolean.TRUE;
 
 	@Override
 	public boolean equals(Object o) {
