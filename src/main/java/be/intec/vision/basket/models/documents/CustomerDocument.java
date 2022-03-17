@@ -13,6 +13,7 @@ import java.time.LocalDate;
 import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
+import java.util.UUID;
 
 @Data
 @NoArgsConstructor(force = true, access = AccessLevel.PUBLIC)
@@ -25,11 +26,10 @@ public class CustomerDocument {
         INDIVIDUAL, COMPANY
     }
 
-
     @MongoId
     String id;
 
-    Type type;
+    Type type=Type.INDIVIDUAL;
 
     String company;
 
@@ -45,7 +45,7 @@ public class CustomerDocument {
 
     Set<TokenDocument> tokens;
 
-    String activation;
+    String activation= UUID.randomUUID().toString();
 
     Set<AddressDocument> addresses = new HashSet<>();
 

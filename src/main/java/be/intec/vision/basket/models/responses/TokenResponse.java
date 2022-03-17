@@ -10,25 +10,20 @@ import javax.validation.constraints.FutureOrPresent;
 import java.time.LocalDateTime;
 
 @Data
-@NoArgsConstructor ( force = true, access = AccessLevel.PUBLIC )
+@NoArgsConstructor(force = true, access = AccessLevel.PUBLIC)
 @AllArgsConstructor
-@FieldDefaults ( level = AccessLevel.PRIVATE )
-@JsonIgnoreProperties ( ignoreUnknown = true )
+@FieldDefaults(level = AccessLevel.PRIVATE)
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class TokenResponse {
 
+    String id;
 
+    String hashValue;
 
-	String id;
+    LocalDateTime createdAt;
 
-	@NonNull
-	String hashValue;
+    LocalDateTime updatedAt;
 
-	@FutureOrPresent
-	LocalDateTime createdAt;
-
-	@FutureOrPresent
-	LocalDateTime updatedAt;
-
-	Boolean active;
+    Boolean active;
 
 }
