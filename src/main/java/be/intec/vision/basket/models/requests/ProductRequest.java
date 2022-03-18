@@ -51,5 +51,17 @@ public class ProductRequest {
 
     Set<MediaRequest> medias = new HashSet<>();
 
+    public void addMedia( MediaRequest media ) {
+
+        this.medias.add( media );
+    }
+
+
+    public void removeMedia( MediaRequest media ) {
+
+        this.medias.remove( media );
+    }
+
+
 
 }

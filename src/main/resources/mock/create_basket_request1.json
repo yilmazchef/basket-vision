@@ -13,15 +13,13 @@
         "postCode": "9240",
         "city": "Gent",
         "region": "Oost-Vlaanderen",
-        "country": "Belgie",
-        "latitude": "12.843642374",
-        "longitude": "4.63245273"
+        "country": "Belgie"
       }
     ],
     "contacts": [
       {
         "email": "john@doe.com",
-        "phone": "04661122335"
+        "phone": "0466122335"
       }
     ]
   },
@@ -40,9 +38,7 @@
       "postCode": "9240",
       "city": "Gent",
       "region": "Oost-Vlaanderen",
-      "country": "Belgie",
-      "latitude": "6.223642374",
-      "longitude": "9.23245273"
+      "country": "Belgie"
     }
   },
   "products": [
@@ -69,7 +65,7 @@
   ],
   "payments": [
     {
-      "type": "CASH",
+      "type": "COD",
       "amount": 12.50,
       "isPaid": true
     }

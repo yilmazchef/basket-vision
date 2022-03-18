@@ -48,7 +48,27 @@ public class CustomerResponse {
 
     Set<AddressResponse> addresses = new HashSet<>();
 
+    public void addAddress (AddressResponse address ) {
+
+		this.addresses.add( address );
+	}
+
+    public void removeAddress (AddressResponse address ) {
+
+		this.addresses.remove( address );
+	}
+
     Set<ContactResponse> contacts = new HashSet<>();
+
+    public void addContact (ContactResponse contact ) {
+
+		this.contacts.add (contact);
+	}
+
+    public void removeContact (ContactResponse contact ) {
+
+		this.contacts.remove(contact);
+	}
 
     Boolean active;
 
