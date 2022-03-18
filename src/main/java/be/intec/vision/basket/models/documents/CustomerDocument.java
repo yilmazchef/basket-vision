@@ -7,13 +7,13 @@ import lombok.NoArgsConstructor;
 import lombok.NonNull;
 import lombok.experimental.FieldDefaults;
 import org.springframework.data.mongodb.core.mapping.Document;
-import org.springframework.data.mongodb.core.mapping.MongoId;
 
 import java.time.LocalDate;
 import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 import java.util.UUID;
+import org.springframework.data.annotation.Id;
 
 @Data
 @NoArgsConstructor(force = true, access = AccessLevel.PUBLIC)
@@ -26,7 +26,7 @@ public class CustomerDocument {
         INDIVIDUAL, COMPANY
     }
 
-    @MongoId
+    @Id
     String id;
 
     Type type=Type.INDIVIDUAL;

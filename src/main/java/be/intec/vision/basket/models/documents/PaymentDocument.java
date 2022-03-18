@@ -6,10 +6,10 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.experimental.FieldDefaults;
 import org.springframework.data.mongodb.core.mapping.Document;
-import org.springframework.data.mongodb.core.mapping.MongoId;
 
 import java.math.BigDecimal;
 import java.util.Objects;
+import org.springframework.data.annotation.Id;
 
 @Data
 @NoArgsConstructor ( force = true, access = AccessLevel.PUBLIC )
@@ -40,7 +40,7 @@ public class PaymentDocument {
 
 	}
 
-	@MongoId
+	@Id
 	String id;
 
 	Type type=Type.PAYPAL;

@@ -5,13 +5,13 @@ import com.mongodb.lang.NonNull;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 import org.springframework.data.mongodb.core.mapping.Document;
-import org.springframework.data.mongodb.core.mapping.MongoId;
 
 import javax.validation.constraints.Min;
 import java.math.BigDecimal;
 import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
+import org.springframework.data.annotation.Id;
 
 @Data
 @NoArgsConstructor(force = true, access = AccessLevel.PUBLIC)
@@ -25,7 +25,7 @@ public class ProductDocument {
         FREE
     }
 
-    @MongoId
+    @Id
     String id;
 
     Type type=Type.SINGLE;
