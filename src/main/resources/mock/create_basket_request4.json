@@ -1,0 +1,74 @@
+{
+    "customer": {
+      "title": "Mrs.",
+      "firstName": "Ann",
+      "lastName": "Janssens",
+      "dateOfBirth": "1984-02-12",
+      "addresses": [
+        {
+          "buildingNo": "102",
+          "street": "Tonijnlaan",
+          "municipality": "Gent",
+          "postCode": "9000",
+          "city": "Gent",
+          "region": "Oost-Vlaanderen",
+          "country": "Belgie"
+        }
+      ],
+      "contacts": [
+        {
+          "email": "ann_the_great@gmail.com",
+          "phone": "0474859611"
+        }
+      ]
+    },
+    "store": {
+      "name": "BOL.com",
+      "about": "Online shop",
+      "contact":
+        {
+          "email": "contact@bol.com",
+          "phone": "027412060"
+        }
+      ,
+      "address":
+        {
+          "buildingNo": "1",
+          "street": "Antwoordnummer",
+          "municipality": "Waalwijk",
+          "postCode": "5140 VA",
+          "city": "Waalwijk",
+          "region": "Noord-Brabant",
+          "country": "Nederland"
+        }
+  
+    },
+    "products": [
+      {
+        "type": "SINGLE",
+        "slug": "https://www.bol.com/nl/nl/p/slazenger-padel-challenge-no-1-gold-12k-padelracket-padelrackets/9300000087641201/?bltgh=taFbsQDcK1SRQk6O0QJGeg.kA8hi9qIto2JYnOLMahEqA_0_10.12.ProductImage",
+        "ean": "EAN-5013317338297",
+        "title": "Slazenger Padel Racket Challenge No.1",
+        "description": "Het Slazenger Padel Racket Challenge No.1 Gold (druppel-hybride) is een erg mooi padelracket in druppelvorm met een gewicht van tussen de 360-370gram.",
+        "quantity": 1,
+        "currency": "EUR",
+        "price": 375,
+        "tax": 78.75,
+        "discount": 0,
+        "deliveryCost": 0,
+        "medias": [
+          {
+            "title": "Slazenger Padel Racket Challenge No.1",
+            "url": "https://media.s-bol.com/x88MDz3BxX33/xnDzjZz/736x1200.jpg"
+  
+          }
+        ]
+      }
+    ],
+    "payments": [
+      {
+        "type": "CREDIT_CARD",
+        "amount": 375
+      }
+    ]
+  }

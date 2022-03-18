@@ -1,0 +1,74 @@
+{
+    "customer": {
+      "title": "Mr.",
+      "firstName": "Jan",
+      "lastName": "Taylor",
+      "dateOfBirth": "1991-12-12",
+      "addresses": [
+        {
+          "buildingNo": "28",
+          "street": "Koningslaan",
+          "municipality": "Kortrijk",
+          "postCode": "8500",
+          "city": "Kortrijk",
+          "region": "West-Vlaanderen",
+          "country": "Belgie"
+        }
+      ],
+      "contacts": [
+        {
+          "email": "jan_who_is_jan@gmail.com",
+          "phone": "0474859620"
+        }
+      ]
+    },
+    "store": {
+      "name": "Zalando",
+      "about": "Online retailer",
+      "contact":
+        {
+          "email": "contact@zalando.com",
+          "phone": "022536041"
+        }
+      ,
+      "address":
+        {
+          "buildingNo": "1",
+          "street": "Tamara-Danz-Str. ",
+          "municipality": "Berlin",
+          "postCode": "10243",
+          "city": "Berlin",
+          "region": "Berlin",
+          "country": "Duitsland"
+        }
+  
+    },
+    "products": [
+      {
+        "type": "SINGLE",
+        "slug": "https://www.zalando.be/crocs-classic-marbled-unisex-badslippers-bright-cobaltwhite-cr416g01u-k11.html",
+        "ean": "EAN-5013317338297",
+        "title": "Crocs Badslippers",
+        "description": "As light hearted as they are lightweight, Crocs footwear provides complete comfort and support for any occasion and every season.",
+        "quantity": 1,
+        "currency": "EUR",
+        "price": 29.99,
+        "tax": 6.298,
+        "discount": 0,
+        "deliveryCost": 0,
+        "medias": [
+          {
+            "title": "Crocs Badslippers",
+            "url": "https://img01.ztat.net/article/spp-media-p1/473cc6986bc548449cec4f2d2434e38e/d9113a58dc4446c08b6aa8f631c5dc8e.jpg?imwidth=762"
+  
+          }
+        ]
+      }
+    ],
+    "payments": [
+      {
+        "type": "PAYPAL",
+        "amount": 29.99
+      }
+    ]
+  }

@@ -2,6 +2,8 @@ package be.intec.vision.basket.models.requests;
 
 
 import be.intec.vision.basket.models.documents.CustomerDocument;
+import be.intec.vision.basket.models.documents.PaymentDocument;
+import be.intec.vision.basket.models.documents.ProductDocument;
 import be.intec.vision.basket.models.documents.StoreDocument;
 import be.intec.vision.basket.models.responses.BasketResponse;
 import be.intec.vision.basket.models.responses.PaymentResponse;
@@ -45,7 +47,30 @@ public class BasketRequest {
 	BigDecimal totalDiscount;
 
 	Set<ProductRequest> products = new LinkedHashSet<>();
+
+	public void addProduct( ProductRequest product ) {
+
+		this.products.add( product );
+	}
+
+
+	public void removeProduct( ProductRequest product ) {
+
+		this.products.remove( product );
+	}
+
 	Set<PaymentRequest> payments = new LinkedHashSet<>();
+
+	public void addPayment( PaymentRequest payment ) {
+
+		this.payments.add( payment );
+	}
+
+
+	public void removePayment( PaymentRequest payment ) {
+
+		this.payments.remove( payment );
+	}
 
 	LocalDateTime createdAt; //expiration time 30m
 
