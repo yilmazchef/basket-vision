@@ -54,6 +54,17 @@ public class ProductDocument {
 
     Set<MediaDocument> medias = new HashSet<>();
 
+    public void addMedia( MediaDocument media ) {
+
+        this.medias.add( media );
+    }
+
+
+    public void removeMedia( MediaDocument media ) {
+
+        this.medias.remove( media );
+    }
+
     Boolean active=Boolean.TRUE;
 
     @Override

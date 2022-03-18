@@ -91,15 +91,15 @@ public class BasketDocument {
 	Set< PaymentDocument > payments = new LinkedHashSet<>();
 
 
-	public void addPayment( PaymentDocument product ) {
+	public void addPayment( PaymentDocument payment ) {
 
-		this.payments.add( product );
+		this.payments.add( payment );
 	}
 
 
-	public void removePayment( PaymentDocument product ) {
+	public void removePayment( PaymentDocument payment ) {
 
-		this.payments.remove( product );
+		this.payments.remove( payment );
 	}
 
 
