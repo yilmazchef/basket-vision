@@ -47,7 +47,7 @@
       {
         "type": "SINGLE",
         "slug": "https://www.zara.com/be/en/glass-jar-with-matches-p46574795.html?v1=175136981&v2=2027007",
-        "ean": "6574/795",
+        "ean": "EAN0006574795",
         "title": "Glass jar with matches",
         "description": "Home decaration piece to warm up your space",
         "quantity": 1,
@@ -59,7 +59,7 @@
         "medias": [
           {
             "title": "Glass jar with matches",
-            "url": "https://static.zara.net/photos///2022/V/4/1/p/6574/795/990/2/w/563/6574795990_6_1_1.jpg?ts=1646737236941"
+            "url": "https://static.zara.net/photos///2022/V/4/1/p/6574/795/990/2/w/563/6574795990_6_1_1.jpg"
   
           }
         ]
