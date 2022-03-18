@@ -145,15 +145,15 @@ public interface BasketMapper {
 	 * TOKEN MAPPERS
 	 */
 
-	@Mapping ( target = "active", ignore = true )
+	//@Mapping ( target = "active", ignore = true )
 
-	TokenDocument toDocument( TokenRequest source );
+	//TokenDocument toDocument( TokenRequest source );
 
-	@Mapping ( target = "active", ignore = true )
+	//@Mapping ( target = "active", ignore = true )
 
-	TokenDocument toDocument( TokenRequest source, @MappingTarget TokenDocument target );
+	//TokenDocument toDocument( TokenRequest source, @MappingTarget TokenDocument target );
 
 
-	TokenResponse toResponse( TokenDocument source );
+	//TokenResponse toResponse( TokenDocument source );
 
 }
