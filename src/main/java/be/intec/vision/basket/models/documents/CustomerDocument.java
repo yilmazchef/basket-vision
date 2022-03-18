@@ -49,7 +49,30 @@ public class CustomerDocument {
 
     Set<AddressDocument> addresses = new HashSet<>();
 
+    public void addAddress( AddressDocument adress ) {
+
+        this.addresses.add( adress );
+    }
+
+
+    public void removeAddress( AddressDocument adress ) {
+
+        this.addresses.remove( adress );
+    }
+
     Set<ContactDocument> contacts = new HashSet<>();
+
+    public void addAContact( ContactDocument contact ) {
+
+        this.contacts.add( contact );
+    }
+
+
+    public void removeContact( ContactDocument contact ) {
+
+        this.contacts.remove( contact );
+    }
+
 
     Boolean active = Boolean.TRUE;
 
