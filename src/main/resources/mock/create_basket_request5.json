@@ -47,7 +47,7 @@
       {
         "type": "SINGLE",
         "slug": "https://www.zalando.be/crocs-classic-marbled-unisex-badslippers-bright-cobaltwhite-cr416g01u-k11.html",
-        "ean": "EAN-5013317338297",
+        "ean": "EAN5013317338297",
         "title": "Crocs Badslippers",
         "description": "As light hearted as they are lightweight, Crocs footwear provides complete comfort and support for any occasion and every season.",
         "quantity": 1,
@@ -59,7 +59,7 @@
         "medias": [
           {
             "title": "Crocs Badslippers",
-            "url": "https://img01.ztat.net/article/spp-media-p1/473cc6986bc548449cec4f2d2434e38e/d9113a58dc4446c08b6aa8f631c5dc8e.jpg?imwidth=762"
+            "url": "https://img01.ztat.net/article/spp-media-p1/473cc6986bc548449cec4f2d2434e38e/d9113a58dc4446c08b6aa8f631c5dc8e.jpg"
   
           }
         ]
