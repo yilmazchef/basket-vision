@@ -147,7 +147,11 @@ public interface BasketMapper {
 
 	//@Mapping ( target = "active", ignore = true )
 
+
 	//TokenDocument toDocument( TokenRequest source );
+
+	TokenDocument toDocument( String source );
+
 
 	//@Mapping ( target = "active", ignore = true )
 

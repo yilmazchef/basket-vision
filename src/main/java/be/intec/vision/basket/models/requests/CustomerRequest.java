@@ -41,7 +41,7 @@ public class CustomerRequest {
 
     LocalDate dateOfBirth;
 
-    Set<String> tokens;
+    Set<TokenRequest> tokens = new HashSet<>();
 
     String activation;
 

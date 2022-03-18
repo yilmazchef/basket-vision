@@ -3,6 +3,15 @@
   "firstName": "Johns",
   "lastName": "Mary",
   "dateOfBirth": "1990-01-21",
+  "tokens": [
+    {
+      "hashValue": "asegq4456dg3fyt5"
+    },
+    {
+      "hashValue": "4t3t6544456dg3fyt5"
+    }
+
+  ],
   "addresses": [
     {
       "buildingNo": "11",

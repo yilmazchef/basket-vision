@@ -17,10 +17,9 @@ import org.springframework.data.mongodb.core.mapping.MongoId;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class MediaRequest {
 
-
     public enum Type {
         PNG, JPG, BMP, GIF, JPEG, JFIF, EXIF, TIFF, WEBP, HDR, HEIF, BAT, // IMAGES
-        MP4, AVI, MKV, MOV, WMV, AVCHD, FLV, F4V, SWF, WEBM, MPEG, MPG, MP2, MPE, MPV, OGG, QT,   // VIDEOS
+        MP4, AVI, MKV, MOV, WMV, AVCHD, FLV, F4V, SWF, WEBM, MPEG,MPG, MP2, MPE, MPV, OGG, QT,   // VIDEOS
         STL, OBJ, MF, DS, MAX, COLLADA, VRML, X3D, STEP, FBX   // 3D OBJECTS
     }
 
@@ -32,11 +31,11 @@ public class MediaRequest {
 
 
     public void setUrl(String url) {
-        String fileName = "student-records.pdf";
+
         String fe = "";
-        int i = fileName.lastIndexOf('.');
+        int i = url.lastIndexOf('.');
         if (i > 0) {
-            fe = fileName.substring(i + 1);
+            fe = url.substring(i + 1);
             this.type = Type.valueOf(fe.toUpperCase());
         }
         this.url = url;
