@@ -1,0 +1,74 @@
+{
+    "customer": {
+      "title": "Mr.",
+      "firstName": "Johny",
+      "lastName": "Lee",
+      "dateOfBirth": "1978-05-11",
+      "addresses": [
+        {
+          "buildingNo": "4",
+          "street": "Appelstraat",
+          "municipality": "Gent",
+          "postCode": "9000",
+          "city": "Gent",
+          "region": "Oost-Vlaanderen",
+          "country": "Belgie"
+        }
+      ],
+      "contacts": [
+        {
+          "email": "johny_forever@gmail.com",
+          "phone": "0478526396"
+        }
+      ]
+    },
+    "store": {
+      "name": "ZARA",
+      "about": "Online retailer for the whole family",
+      "contact":
+        {
+          "email": "contact@zara.com",
+          "phone": "0087963020"
+        }
+      ,
+      "address":
+        {
+          "buildingNo": "196",
+          "street": "Nieuwendijk",
+          "municipality": "Amsterdam",
+          "postCode": "1012 MV",
+          "city": "Amsterdam",
+          "region": "Amsterdam",
+          "country": "Nederland"
+        }
+  
+    },
+    "products": [
+      {
+        "type": "SINGLE",
+        "slug": "https://www.zara.com/be/en/glass-jar-with-matches-p46574795.html?v1=175136981&v2=2027007",
+        "ean": "6574/795",
+        "title": "Glass jar with matches",
+        "description": "Home decaration piece to warm up your space",
+        "quantity": 1,
+        "currency": "EUR",
+        "price": 15.99,
+        "tax": 3.36,
+        "discount": 0,
+        "deliveryCost": 0,
+        "medias": [
+          {
+            "title": "Glass jar with matches",
+            "url": "https://static.zara.net/photos///2022/V/4/1/p/6574/795/990/2/w/563/6574795990_6_1_1.jpg?ts=1646737236941"
+  
+          }
+        ]
+      }
+    ],
+    "payments": [
+      {
+        "type": "DEBIT_CARD",
+        "amount": 15.99
+      }
+    ]
+  }

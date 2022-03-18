@@ -56,6 +56,16 @@ public class ProductResponse {
 
     Set<MediaResponse> medias = new HashSet<>();
 
+    public void addMedia (MediaResponse media ) {
+
+		this.medias.add (media);
+	}
+
+    public void removeMedia (MediaResponse media ) {
+
+		this.medias.remove(media);
+	}
+
     Boolean active;
 
 }

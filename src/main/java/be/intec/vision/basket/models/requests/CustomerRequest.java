@@ -43,11 +43,44 @@ public class CustomerRequest {
 
     Set<TokenRequest> tokens = new HashSet<>();
 
+    public void addToken( TokenRequest token ) {
+
+        this.tokens.add( token );
+    }
+
+
+    public void removeToken(  TokenRequest token ) {
+
+        this.tokens.remove(token );
+    }
+
     String activation;
 
     Set<AddressRequest> addresses = new HashSet<>();
 
+    public void addAddress( AddressRequest address ) {
+
+        this.addresses.add( address );
+    }
+
+
+    public void removeAddress( AddressRequest address  ) {
+
+        this.addresses.remove( address );
+    }
+
     Set<ContactRequest> contacts = new HashSet<>();
+
+    public void addContact( ContactRequest contact ) {
+
+        this.contacts.add( contact );
+    }
+
+
+    public void removeContact( ContactRequest contact ) {
+
+        this.contacts.remove( contact );
+    }
 
 
 }
