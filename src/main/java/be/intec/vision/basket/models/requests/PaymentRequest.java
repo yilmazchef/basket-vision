@@ -10,6 +10,7 @@ import lombok.NoArgsConstructor;
 import lombok.experimental.FieldDefaults;
 import org.springframework.data.mongodb.core.mapping.MongoId;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 
 @Data
@@ -17,7 +18,7 @@ import java.math.BigDecimal;
 @AllArgsConstructor
 @FieldDefaults ( level = AccessLevel.PRIVATE )
 @JsonIgnoreProperties ( ignoreUnknown = true )
-public class PaymentRequest {
+public class PaymentRequest implements Serializable {
 
 
 	public enum Type {

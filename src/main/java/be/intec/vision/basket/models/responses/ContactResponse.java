@@ -10,6 +10,7 @@ import org.springframework.data.mongodb.core.mapping.MongoId;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
+import java.io.Serializable;
 import java.util.UUID;
 
 @Data
@@ -17,7 +18,7 @@ import java.util.UUID;
 @AllArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE)
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class ContactResponse {
+public class ContactResponse implements Serializable {
 
 
     public enum Type {

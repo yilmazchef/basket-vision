@@ -42,7 +42,7 @@ public class CustomerDocument implements Serializable {
     String lastName;
 
     LocalDate dateOfBirth;
-
+//OneToMany
     Set<TokenDocument> tokens = new HashSet<>();
 
     String activation= UUID.randomUUID().toString();
