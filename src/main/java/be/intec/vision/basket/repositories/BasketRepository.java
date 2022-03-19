@@ -15,6 +15,8 @@ import java.util.Optional;
 @Repository
 public interface BasketRepository extends JpaRepository< BasketDocument,Long> {
 
+
+
 	Boolean existsBySession( final @NotNull String session );
 
 	Boolean existsBySessionAndId( final @NotNull String session, final Long basketId );

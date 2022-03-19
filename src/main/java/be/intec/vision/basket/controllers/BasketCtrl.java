@@ -109,7 +109,7 @@ public class BasketCtrl {
                     content = @Content)})
     @PutMapping(HttpEndpoints.PATCH_SINGLE_BY_ID)
     public ResponseEntity<BasketResponse> updateProductQuantity(@RequestParam("basketId") @NotNull Long basketId,
-                                                                @RequestParam("productId") @NotNull String productId,
+                                                                @RequestParam("productId") @NotNull Long productId,
                                                                 @RequestParam("quantity") @NotNull Float quantity) {
 
 
@@ -161,7 +161,7 @@ public class BasketCtrl {
             @ApiResponse(responseCode = "404", description = "Basket id is not found",
                     content = @Content)})
     @DeleteMapping(HttpEndpoints.DELETE_BY_ID)
-    public ResponseEntity<BasketResponse> deleteByIdMakePassive(@RequestParam("basketId") @NotNull String basketId) {
+    public ResponseEntity<BasketResponse> deleteByIdMakePassive(@RequestParam("basketId") @NotNull Long basketId) {
 
         return basketRepository
                 .findById(basketId)
@@ -215,7 +215,7 @@ public class BasketCtrl {
     @GetMapping(HttpEndpoints.GET_ALL_BY_SESSION)
     public ResponseEntity<List<BasketResponse>> findAllBySession(@RequestParam("session") @NotNull String session) {
 
-        if (basketRepository.existsById(session) == Boolean.FALSE) {
+        if (basketRepository.existsBySession(session) == Boolean.FALSE) {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, HttpFailureMessages.SESSION_DOES_NOT_EXISTS.getDescription());
         }
 
@@ -297,7 +297,7 @@ public class BasketCtrl {
             @ApiResponse(responseCode = "404", description = "Store not found",
                     content = @Content)})
     @GetMapping(HttpEndpoints.GET_ALL_BY_STORE)
-    public ResponseEntity<?> findAllByStore(@RequestParam("storeId") String storeId,
+    public ResponseEntity<?> findAllByStore(@RequestParam("storeId") Long storeId,
                                             @RequestParam(value = HttpEndpoints.PAGE_NUMBER_TEXT, required = false, defaultValue = HttpEndpoints.PAGE_NUMBER_DEFAULT_VALUE) Integer pageNo,
                                             @RequestParam(value = HttpEndpoints.PAGE_SIZE_TEXT, required = false, defaultValue = HttpEndpoints.PAGE_SIZE_DEFAULT_VALUE) Integer pageSize) {
 
@@ -328,7 +328,7 @@ public class BasketCtrl {
             @ApiResponse(responseCode = "404", description = "Store and Customer not found",
                     content = @Content)})
     @GetMapping(HttpEndpoints.GET_ALL_BY_CUSTOMER_AND_STORE)
-    public ResponseEntity<?> findAllByCustomerAndStore(@RequestParam("customerId") String customerId, @RequestParam("storeId") String storeId,
+    public ResponseEntity<?> findAllByCustomerAndStore(@RequestParam("customerId") Long customerId, @RequestParam("storeId") Long storeId,
                                                        @RequestParam(value = HttpEndpoints.PAGE_NUMBER_TEXT, required = false, defaultValue = HttpEndpoints.PAGE_NUMBER_DEFAULT_VALUE) Integer pageNo,
                                                        @RequestParam(value = HttpEndpoints.PAGE_SIZE_TEXT, required = false, defaultValue = HttpEndpoints.PAGE_SIZE_DEFAULT_VALUE) Integer pageSize) {
 
@@ -359,7 +359,7 @@ public class BasketCtrl {
                     content = @Content),
             @ApiResponse(responseCode = "404", description = "Store and Session not found",
                     content = @Content) })    @GetMapping(HttpEndpoints.GET_BY_SESSION_AND_STORE)
-    public ResponseEntity<?> findBySessionAndStore(@RequestParam("session") String session, @RequestParam("storeId") String storeId,
+    public ResponseEntity<?> findBySessionAndStore(@RequestParam("session") String session, @RequestParam("storeId") Long storeId,
                                                    @RequestParam(value = HttpEndpoints.PAGE_NUMBER_TEXT, required = false, defaultValue = HttpEndpoints.PAGE_NUMBER_DEFAULT_VALUE) Integer pageNo,
                                                    @RequestParam(value = HttpEndpoints.PAGE_SIZE_TEXT, required = false, defaultValue = HttpEndpoints.PAGE_SIZE_DEFAULT_VALUE) Integer pageSize) {
 
@@ -410,7 +410,7 @@ public class BasketCtrl {
             @ApiResponse(responseCode = "404", description = "Unique Field not found",
                     content = @Content) })
     @GetMapping(HttpEndpoints.GET_EXISTS_BY_UNIQUE_FIELDS)
-    public ResponseEntity<String> existsByUniqueFields(@RequestParam("session") String session, @RequestParam("storeId") String storeId) {
+    public ResponseEntity<String> existsByUniqueFields(@RequestParam("session") String session, @RequestParam("storeId") Long storeId) {
 
         if (session == null) {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, HttpFailureMessages.SESSION_IS_REQUIRED.getDescription());
@@ -438,7 +438,7 @@ public class BasketCtrl {
     @GetMapping(HttpEndpoints.GET_EXISTS_BY_ID)
     public ResponseEntity<String> existsById(@RequestParam("basketId") @NotNull Long basketId) {
 
-        return basketRepository.existsById(new String(basketId))
+        return basketRepository.existsById(basketId)
                 ? ResponseEntity.status(HttpStatus.FOUND).body(HttpSuccessMessages.BASKET_EXISTS.getDescription())
                 : ResponseEntity.status(HttpStatus.NOT_FOUND).body(HttpFailureMessages.BASKET_DOES_NOT_EXIST.getDescription());
     }
