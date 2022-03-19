@@ -7,7 +7,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.experimental.FieldDefaults;
 import org.springframework.data.mongodb.core.mapping.Document;
-import org.springframework.data.mongodb.core.mapping.MongoId;
+import org.springframework.data.annotation.Id;
 
 import java.util.Objects;
 
@@ -18,7 +18,7 @@ import java.util.Objects;
 public class StoreDocument {
 
 
-	@MongoId
+	@Id
 	String id;
 	@NonNull
 	String name;

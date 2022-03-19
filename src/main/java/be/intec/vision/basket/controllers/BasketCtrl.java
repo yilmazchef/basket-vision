@@ -50,7 +50,7 @@ public class BasketCtrl {
             @ApiResponse(responseCode = "404", description = "Page not found",
                     content = @Content)})
     @PostMapping(HttpEndpoints.POST_SINGLE)
-    public ResponseEntity<BasketResponse> create(@RequestBody @Valid @NotNull BasketRequest request) {
+    public ResponseEntity<BasketResponse> create(@RequestBody @Valid BasketRequest request) {
 
         if (request.getStore() == null) {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, HttpFailureMessages.BASKET_EXIST_CANNOT_BE_CREATED.getDescription());
@@ -113,7 +113,7 @@ public class BasketCtrl {
                                                                 @RequestParam("quantity") @NotNull Float quantity) {
 
 
-        if (basketRepository.existsById(basketId) == Boolean.FALSE) {
+        if (basketRepository.existsById(basketId) == Boolean.FALSE ) {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, HttpFailureMessages.BASKET_NOT_FOUND.getDescription());
         }
 

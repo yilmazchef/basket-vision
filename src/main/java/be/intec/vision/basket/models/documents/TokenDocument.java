@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
 import lombok.NonNull;
 import lombok.experimental.FieldDefaults;
 import org.springframework.data.mongodb.core.mapping.Document;
-import org.springframework.data.mongodb.core.mapping.MongoId;
+import org.springframework.data.annotation.Id;
 
 import javax.validation.constraints.FutureOrPresent;
 import java.time.LocalDateTime;
@@ -19,7 +19,7 @@ import java.util.Objects;
 @Document ( value = "tokens", collection = "tokens" )
 public class TokenDocument {
 
-	@MongoId
+	@Id
 	String id;
 
 	@NonNull

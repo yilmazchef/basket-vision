@@ -7,14 +7,13 @@ import lombok.NoArgsConstructor;
 import lombok.NonNull;
 import lombok.experimental.FieldDefaults;
 import org.springframework.data.mongodb.core.mapping.Document;
-import org.springframework.data.mongodb.core.mapping.MongoId;
 
 import javax.validation.constraints.Email;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
-import javax.validation.constraints.NotNull;
 import java.util.Objects;
 import java.util.UUID;
+import org.springframework.data.annotation.Id;
 
 @Data
 @NoArgsConstructor(force = true, access = AccessLevel.PUBLIC)
@@ -28,7 +27,7 @@ public class ContactDocument {
         ALL
     }
 
-    @MongoId
+    @Id
     String id;
 
     Type type = Type.ALL;

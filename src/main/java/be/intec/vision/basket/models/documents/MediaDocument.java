@@ -6,7 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.experimental.FieldDefaults;
 import org.springframework.data.mongodb.core.mapping.Document;
-import org.springframework.data.mongodb.core.mapping.MongoId;
+import org.springframework.data.annotation.Id;
 
 import java.util.Objects;
 
@@ -23,7 +23,7 @@ public class MediaDocument {
 	}
 
 
-	@MongoId
+	@Id
 	String id;
 
 	Type type=Type.PNG;
