@@ -1,32 +1,37 @@
 package be.intec.vision.basket.models.documents;
 
 
-import com.mongodb.lang.NonNull;
-import lombok.AccessLevel;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import lombok.experimental.FieldDefaults;
-import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.annotation.Id;
 
+import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import java.io.Serializable;
 import java.util.Objects;
 
-@Data
+@Getter
+@Setter
 @NoArgsConstructor ( force = true, access = AccessLevel.PUBLIC )
 @FieldDefaults ( level = AccessLevel.PRIVATE )
-@Document ( value = "stores", collection = "stores")
-public class StoreDocument {
+@Entity
+public class StoreDocument implements Serializable {
 
 
 	@Id
-	String id;
+	Long id;
 	@NonNull
 	String name;
 
 	String about;
 
+	@ManyToOne
+	@JoinColumn(name = "contact_id")
 	ContactDocument contact;
 
+	@ManyToOne
+	@JoinColumn(name = "address_id")
 	AddressDocument address;
 
 	Boolean active=Boolean.TRUE;

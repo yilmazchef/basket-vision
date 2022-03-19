@@ -1,21 +1,22 @@
 package be.intec.vision.basket.models.documents;
 
 
-import lombok.AccessLevel;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import lombok.experimental.FieldDefaults;
-import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Objects;
 import org.springframework.data.annotation.Id;
 
-@Data
+import javax.persistence.Entity;
+
+@Getter
+@Setter
 @NoArgsConstructor ( force = true, access = AccessLevel.PUBLIC )
 @FieldDefaults ( level = AccessLevel.PRIVATE )
-@Document ( value = "payments" )
-public class PaymentDocument {
+@Entity
+public class PaymentDocument implements Serializable {
 
 	public enum Type {
 		CASH,
@@ -41,7 +42,7 @@ public class PaymentDocument {
 	}
 
 	@Id
-	String id;
+	Long id;
 
 	Type type=Type.PAYPAL;
 

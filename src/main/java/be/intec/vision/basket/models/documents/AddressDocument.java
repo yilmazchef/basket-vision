@@ -1,23 +1,22 @@
 package be.intec.vision.basket.models.documents;
 
 
-import lombok.AccessLevel;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.NonNull;
+import lombok.*;
 import lombok.experimental.FieldDefaults;
-import org.springframework.data.mongodb.core.mapping.Document;
 
+import javax.persistence.Entity;
 import javax.validation.constraints.NotNull;
+import java.io.Serializable;
 import java.util.Objects;
 import java.util.UUID;
 import org.springframework.data.annotation.Id;
 
-@Data
+@Getter
+@Setter
 @NoArgsConstructor(force = true, access = AccessLevel.PUBLIC)
 @FieldDefaults(level = AccessLevel.PRIVATE)
-@Document(value = "addresses")
-public class AddressDocument {
+@Entity
+public class AddressDocument implements Serializable {
 
     public enum Type {
         BILLING,
@@ -26,7 +25,7 @@ public class AddressDocument {
     }
 
     @Id
-    String id;
+    Long id;
 
     Type type = Type.ALL;
 

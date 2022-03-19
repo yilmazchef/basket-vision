@@ -1,13 +1,10 @@
 package be.intec.vision.basket.models.documents;
 
 
-import lombok.AccessLevel;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.NonNull;
+import lombok.*;
 import lombok.experimental.FieldDefaults;
-import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.HashSet;
 import java.util.Objects;
@@ -15,11 +12,14 @@ import java.util.Set;
 import java.util.UUID;
 import org.springframework.data.annotation.Id;
 
-@Data
+import javax.persistence.Entity;
+
+@Getter
+@Setter
 @NoArgsConstructor(force = true, access = AccessLevel.PUBLIC)
 @FieldDefaults(level = AccessLevel.PRIVATE)
-@Document(value = "customers")
-public class CustomerDocument {
+@Entity
+public class CustomerDocument implements Serializable {
 
 
     public enum Type {
@@ -27,7 +27,7 @@ public class CustomerDocument {
     }
 
     @Id
-    String id;
+    Long id;
 
     Type type=Type.INDIVIDUAL;
 

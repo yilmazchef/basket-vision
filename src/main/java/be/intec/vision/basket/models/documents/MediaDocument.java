@@ -1,20 +1,20 @@
 package be.intec.vision.basket.models.documents;
 
 
-import lombok.AccessLevel;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import lombok.experimental.FieldDefaults;
-import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.annotation.Id;
 
+import javax.persistence.Entity;
+import java.io.Serializable;
 import java.util.Objects;
 
-@Data
+@Getter
+@Setter
 @NoArgsConstructor ( force = true, access = AccessLevel.PUBLIC )
 @FieldDefaults ( level = AccessLevel.PRIVATE )
-@Document ( value = "medias" )
-public class MediaDocument {
+@Entity
+public class MediaDocument implements Serializable {
 
 	public enum Type {
 		PNG, JPG, BMP, GIF, JPEG, JFIF, EXIF, TIFF, WEBP, HDR, HEIF, BAT, // IMAGES
@@ -24,7 +24,7 @@ public class MediaDocument {
 
 
 	@Id
-	String id;
+	Long id;
 
 	Type type=Type.PNG;
 
