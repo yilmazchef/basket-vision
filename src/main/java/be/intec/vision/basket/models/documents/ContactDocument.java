@@ -30,13 +30,16 @@ public class ContactDocument  implements Serializable {
     Long id;
 
     Type type = Type.ALL;
+
     @NonNull
     @Email
     String email;
+
     @NonNull
     @Min(9)
     @Max(15)
     String phone;
+
     String activation = UUID.randomUUID().toString();
 
     Boolean active = Boolean.TRUE;

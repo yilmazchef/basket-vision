@@ -13,6 +13,7 @@ import java.util.UUID;
 import org.springframework.data.annotation.Id;
 
 import javax.persistence.Entity;
+import javax.persistence.OneToMany;
 
 @Getter
 @Setter
@@ -42,11 +43,13 @@ public class CustomerDocument implements Serializable {
     String lastName;
 
     LocalDate dateOfBirth;
-//OneToMany
+
+    @OneToMany
     Set<TokenDocument> tokens = new HashSet<>();
 
     String activation= UUID.randomUUID().toString();
 
+    @OneToMany
     Set<AddressDocument> addresses = new HashSet<>();
 
     public void addAddress( AddressDocument adress ) {

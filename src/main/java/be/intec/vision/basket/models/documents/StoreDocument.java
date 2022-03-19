@@ -30,6 +30,7 @@ public class StoreDocument implements Serializable {
 	@JoinColumn(name = "contact_id")
 	ContactDocument contact;
 
+
 	@ManyToOne
 	@JoinColumn(name = "address_id")
 	AddressDocument address;

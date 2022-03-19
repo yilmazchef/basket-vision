@@ -15,7 +15,6 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.experimental.FieldDefaults;
 
-
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;

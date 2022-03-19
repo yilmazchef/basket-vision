@@ -5,6 +5,7 @@ import lombok.*;
 import lombok.experimental.FieldDefaults;
 
 import javax.persistence.Entity;
+import javax.persistence.OneToMany;
 import javax.validation.constraints.Min;
 import java.io.Serializable;
 import java.math.BigDecimal;
@@ -42,6 +43,7 @@ public class ProductDocument implements Serializable {
     Float quantity=1.0f;
 
     String currency = "EUR";
+
     @NonNull
     BigDecimal price;
 
@@ -53,6 +55,7 @@ public class ProductDocument implements Serializable {
   BigDecimal tax=BigDecimal.ZERO;
 
 
+  @OneToMany
     Set<MediaDocument> medias = new HashSet<>();
 
     public void addMedia( MediaDocument media ) {
