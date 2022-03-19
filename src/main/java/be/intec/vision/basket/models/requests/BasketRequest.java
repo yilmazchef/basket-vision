@@ -16,6 +16,7 @@ import lombok.NoArgsConstructor;
 import lombok.experimental.FieldDefaults;
 import org.springframework.data.mongodb.core.mapping.MongoId;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.LinkedHashSet;
@@ -26,7 +27,7 @@ import java.util.Set;
 @AllArgsConstructor
 @FieldDefaults ( level = AccessLevel.PRIVATE )
 @JsonIgnoreProperties ( ignoreUnknown = true )
-public class BasketRequest {
+public class BasketRequest implements Serializable {
 
 
 	public enum Type {
