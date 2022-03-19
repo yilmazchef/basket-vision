@@ -8,12 +8,14 @@ import lombok.*;
 import lombok.experimental.FieldDefaults;
 import org.springframework.data.mongodb.core.mapping.MongoId;
 
+import java.io.Serializable;
+
 @Data
 @NoArgsConstructor ( force = true, access = AccessLevel.PUBLIC )
 @AllArgsConstructor
 @FieldDefaults ( level = AccessLevel.PRIVATE )
 @JsonIgnoreProperties ( ignoreUnknown = true )
-public class StoreRequest {
+public class StoreRequest implements Serializable {
 
 
 	@NonNull
