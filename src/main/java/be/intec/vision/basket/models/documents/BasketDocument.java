@@ -37,8 +37,11 @@ public class BasketDocument {
 
 	String session= UUID.randomUUID().toString();
 
+	//@ManyToONE
+	//@JoinColumn(customer_id)
 	CustomerDocument customer;
-
+//@ManytoOne
+	//@JoinColumn
 	StoreDocument store;
 
 	@Transient
