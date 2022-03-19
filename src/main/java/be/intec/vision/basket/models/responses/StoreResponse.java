@@ -4,13 +4,13 @@ package be.intec.vision.basket.models.responses;
 import be.intec.vision.basket.models.documents.AddressDocument;
 import be.intec.vision.basket.models.documents.ContactDocument;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.mongodb.lang.NonNull;
+
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.experimental.FieldDefaults;
-import org.springframework.data.mongodb.core.mapping.MongoId;
+
 
 import java.io.Serializable;
 

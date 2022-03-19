@@ -88,7 +88,7 @@ public class BasketCtrl {
             @ApiResponse(responseCode = "404", description = "Basket id is not found",
                     content = @Content)})
     @PutMapping(HttpEndpoints.PUT_SESSION_BY_BASKET_ID)
-    public ResponseEntity<BasketResponse> updateSessionByBasketId(@RequestParam("basketId") @NotNull String basketId,
+    public ResponseEntity<BasketResponse> updateSessionByBasketId(@RequestParam("basketId") @NotNull Long basketId,
                                                                   @RequestParam("session") @NotNull String session) {
 
         if (basketRepository.existsById(basketId) == Boolean.FALSE) {
@@ -108,7 +108,7 @@ public class BasketCtrl {
             @ApiResponse(responseCode = "404", description = "Basket id is not found",
                     content = @Content)})
     @PutMapping(HttpEndpoints.PATCH_SINGLE_BY_ID)
-    public ResponseEntity<BasketResponse> updateProductQuantity(@RequestParam("basketId") @NotNull String basketId,
+    public ResponseEntity<BasketResponse> updateProductQuantity(@RequestParam("basketId") @NotNull Long basketId,
                                                                 @RequestParam("productId") @NotNull String productId,
                                                                 @RequestParam("quantity") @NotNull Float quantity) {
 
@@ -187,7 +187,7 @@ public class BasketCtrl {
             @ApiResponse(responseCode = "404", description = "Basket id is not found",
                     content = @Content)})
     @DeleteMapping(HttpEndpoints.DELETE_BY_ID_PERMANENTLY)
-    public ResponseEntity<String> deleteByIdPermanently(@RequestParam("basketId") @NotNull String basketId) {
+    public ResponseEntity<String> deleteByIdPermanently(@RequestParam("basketId") @NotNull Long basketId) {
 
         return basketRepository
                 .findById(basketId)
@@ -266,7 +266,7 @@ public class BasketCtrl {
             @ApiResponse(responseCode = "404", description = "Customer id is not found",
                     content = @Content)})
     @GetMapping(HttpEndpoints.GET_ALL_BY_CUSTOMER)
-    public ResponseEntity<?> findAllByCustomer(@RequestParam("customerId") String customerId,
+    public ResponseEntity<?> findAllByCustomer(@RequestParam("customerId") Long customerId,
                                                @RequestParam(value = HttpEndpoints.PAGE_NUMBER_TEXT, required = false, defaultValue = HttpEndpoints.PAGE_NUMBER_DEFAULT_VALUE) Integer pageNo,
                                                @RequestParam(value = HttpEndpoints.PAGE_SIZE_TEXT, required = false, defaultValue = HttpEndpoints.PAGE_SIZE_DEFAULT_VALUE) Integer pageSize) {
 
@@ -384,7 +384,7 @@ public class BasketCtrl {
             @ApiResponse(responseCode = "404", description = "Basket not found",
                     content = @Content)})
     @GetMapping(HttpEndpoints.GET_BY_ID)
-    public ResponseEntity<?> findById(@RequestParam("basketId") String basketId) {
+    public ResponseEntity<?> findById(@RequestParam("basketId") Long basketId) {
 
         if (basketId == null) {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, HttpFailureMessages.BASKET_ID_IS_REQUIRED.getDescription());
@@ -436,7 +436,7 @@ public class BasketCtrl {
             @ApiResponse(responseCode = "404", description = "Basket not  found",
                     content = @Content) })
     @GetMapping(HttpEndpoints.GET_EXISTS_BY_ID)
-    public ResponseEntity<String> existsById(@RequestParam("basketId") @NotNull String basketId) {
+    public ResponseEntity<String> existsById(@RequestParam("basketId") @NotNull Long basketId) {
 
         return basketRepository.existsById(new String(basketId))
                 ? ResponseEntity.status(HttpStatus.FOUND).body(HttpSuccessMessages.BASKET_EXISTS.getDescription())
