@@ -1,26 +1,25 @@
 package be.intec.vision.basket.models.documents;
 
 
-import lombok.AccessLevel;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.NonNull;
+import lombok.*;
 import lombok.experimental.FieldDefaults;
-import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.annotation.Id;
 
+import javax.persistence.Entity;
 import javax.validation.constraints.FutureOrPresent;
+import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.Objects;
 
-@Data
+@Getter
+@Setter
 @NoArgsConstructor ( force = true, access = AccessLevel.PUBLIC )
 @FieldDefaults ( level = AccessLevel.PRIVATE )
-@Document ( value = "tokens", collection = "tokens" )
-public class TokenDocument {
+@Entity
+public class TokenDocument implements Serializable {
 
 	@Id
-	String id;
+	Long id;
 
 	@NonNull
 	String hashValue;

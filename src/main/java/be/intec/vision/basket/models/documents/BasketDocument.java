@@ -1,15 +1,13 @@
 package be.intec.vision.basket.models.documents;
 
 
-import lombok.AccessLevel;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import lombok.experimental.FieldDefaults;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.annotation.Transient;
-import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.rmi.server.UID;
 import java.time.LocalDateTime;
@@ -18,12 +16,14 @@ import java.util.Objects;
 import java.util.Set;
 import java.util.UUID;
 import org.springframework.data.annotation.Id;
+import javax.persistence.Entity;
 
-@Data
+@Getter
+@Setter
 @NoArgsConstructor ( force = true, access = AccessLevel.PUBLIC )
 @FieldDefaults ( level = AccessLevel.PRIVATE )
-@Document ( value = "baskets" )
-public class BasketDocument {
+@Entity
+public class BasketDocument implements Serializable {
 
 	public enum Type {
 		SHOPPING_CART,
@@ -31,7 +31,7 @@ public class BasketDocument {
 	}
 
 	@Id
-	String id;
+	Long id;
 
 	Type type=Type.SHOPPING_CART;
 

@@ -1,23 +1,24 @@
 package be.intec.vision.basket.models.documents;
 
 
-import com.mongodb.lang.NonNull;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
-import org.springframework.data.mongodb.core.mapping.Document;
 
+import javax.persistence.Entity;
 import javax.validation.constraints.Min;
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 import org.springframework.data.annotation.Id;
 
-@Data
+@Getter
+@Setter
 @NoArgsConstructor(force = true, access = AccessLevel.PUBLIC)
 @FieldDefaults(level = AccessLevel.PRIVATE)
-@Document(value = "products")
-public class ProductDocument {
+@Entity
+public class ProductDocument implements Serializable {
 
     public enum Type {
         SINGLE,
@@ -26,7 +27,7 @@ public class ProductDocument {
     }
 
     @Id
-    String id;
+    Long id;
 
     Type type=Type.SINGLE;
 

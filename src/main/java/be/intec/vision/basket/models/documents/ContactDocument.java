@@ -1,25 +1,24 @@
 package be.intec.vision.basket.models.documents;
 
 
-import lombok.AccessLevel;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.NonNull;
+import lombok.*;
 import lombok.experimental.FieldDefaults;
-import org.springframework.data.mongodb.core.mapping.Document;
 
+import javax.persistence.Entity;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
+import java.io.Serializable;
 import java.util.Objects;
 import java.util.UUID;
 import org.springframework.data.annotation.Id;
 
-@Data
+@Getter
+@Setter
 @NoArgsConstructor(force = true, access = AccessLevel.PUBLIC)
 @FieldDefaults(level = AccessLevel.PRIVATE)
-@Document(value = "contacts")
-public class ContactDocument {
+@Entity
+public class ContactDocument  implements Serializable {
 
     public enum Type {
         BILLING,
@@ -28,7 +27,7 @@ public class ContactDocument {
     }
 
     @Id
-    String id;
+    Long id;
 
     Type type = Type.ALL;
     @NonNull
