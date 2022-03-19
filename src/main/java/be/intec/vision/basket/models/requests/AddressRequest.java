@@ -5,7 +5,6 @@ import be.intec.vision.basket.models.responses.AddressResponse;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
-import org.springframework.data.mongodb.core.mapping.MongoId;
 import org.springframework.lang.Nullable;
 
 import java.io.Serializable;

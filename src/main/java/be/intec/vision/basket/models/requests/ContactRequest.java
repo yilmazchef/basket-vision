@@ -1,11 +1,9 @@
 package be.intec.vision.basket.models.requests;
 
 
-import be.intec.vision.basket.models.responses.ContactResponse;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
-import org.springframework.data.mongodb.core.mapping.MongoId;
 
 import javax.validation.constraints.Email;
 import javax.validation.constraints.Max;

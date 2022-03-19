@@ -1,14 +1,12 @@
 package be.intec.vision.basket.models.requests;
 
 
-import be.intec.vision.basket.models.responses.PaymentResponse;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.experimental.FieldDefaults;
-import org.springframework.data.mongodb.core.mapping.MongoId;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
