@@ -8,6 +8,8 @@ import lombok.experimental.FieldDefaults;
 import org.springframework.data.mongodb.core.mapping.MongoId;
 import org.springframework.lang.Nullable;
 
+import java.io.Serializable;
+
 @Data
 @NoArgsConstructor(force = true, access = AccessLevel.PUBLIC)
 @AllArgsConstructor
@@ -16,7 +18,7 @@ import org.springframework.lang.Nullable;
 public class AddressRequest {
 
 
-    public enum Type {
+    public enum Type implements Serializable {
         BILLING,
         SHIPPING,
         ALL
