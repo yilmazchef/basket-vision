@@ -17,33 +17,33 @@ The tool is handsfree that is virus- and bacteria free and it's accessable for e
 
 Getting started without Computer Vision
 
-## Prerequisites
-In order to work on Magic Basket, you need the following languages and tools installed:
+## Prerequisites <br/>
+In order to work on Magic Basket, you need the following languages and tools installed: <br/>
 
-Spring and Spring Boot
-Basket Vision
-MediaPipe
-MapStruct
-MongoDB Atlas
+Spring and Spring Boot <br/>
+Basket Vision <br/>
+MediaPipe <br/>
+MapStruct <br/>
+MongoDB Atlas <br/>
 
-MongoDB Compass
+MongoDB Compass <br/>
 
-Constraint validation
-OpenCV
-NumPy
-Docker
+Constraint validation <br/>
+OpenCV <br/>
+NumPy <br/>
+Docker <br/>
 
 Once you have the prerequisites installed and the code downloaded and expanded into a directory (which we will call "magic basket"),
 Go to http://localhost:8080 and you should see the app running.
 
 ## Setup Environment
 
-### installation:
-git clone https://github.com/yilmazchef/basket-vision
-cd basket-vision
-mvn clean install
+### installation: <br/>
+git clone https://github.com/yilmazchef/basket-vision <br/>
+cd basket-vision <br/>
+mvn clean install <br/>
 
-### running the application:
+### running the application: <br/>
 mvn spring-boot:run
 
 ### project-structure:
