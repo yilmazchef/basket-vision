@@ -9,7 +9,9 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.math.BigDecimal;
 import java.util.Objects;
+
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Field;
 
 @Data
 @NoArgsConstructor ( force = true, access = AccessLevel.PUBLIC )
@@ -33,7 +35,7 @@ public class PaymentDocument {
 		BITCOIN,
 		ETHEREUM,
 		COD,
-	    AMERICAN_EXPRESS,
+		AMERICAN_EXPRESS,
 		UNION_PAY,
 		QIWI,
 		SKRILL
@@ -41,32 +43,43 @@ public class PaymentDocument {
 	}
 
 	@Id
+	@Field ( "_id" )
 	String id;
 
-	Type type=Type.PAYPAL;
+	Type type = Type.PAYPAL;
 
-	BigDecimal amount=BigDecimal.ZERO;
+	BigDecimal amount = BigDecimal.ZERO;
 
-	Boolean isPaid=Boolean.FALSE;
+	Boolean isPaid = Boolean.FALSE;
 
-	Boolean active=Boolean.TRUE;
+	Boolean active = Boolean.TRUE;
+
 
 	@Override
-	public boolean equals(Object o) {
-		if (this == o) return true;
-		if (!(o instanceof PaymentDocument)) return false;
-		PaymentDocument that = (PaymentDocument) o;
-		return Objects.equals(getId(), that.getId());
+	public boolean equals( Object o ) {
+
+		if ( this == o ) {
+			return true;
+		}
+		if ( ! ( o instanceof PaymentDocument ) ) {
+			return false;
+		}
+		PaymentDocument that = ( PaymentDocument ) o;
+		return Objects.equals( getId(), that.getId() );
 	}
+
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(getId());
+
+		return Objects.hash( getId() );
 	}
+
 
 	@Override
 	public String toString() {
 
 		return this.getType() + " " + this.getAmount();
 	}
+
 }

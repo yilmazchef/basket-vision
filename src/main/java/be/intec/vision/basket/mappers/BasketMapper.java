@@ -6,7 +6,11 @@ import be.intec.vision.basket.models.requests.*;
 import be.intec.vision.basket.models.responses.*;
 import org.mapstruct.*;
 
-@Mapper ( componentModel = "spring", collectionMappingStrategy = CollectionMappingStrategy.ADDER_PREFERRED, nullValueCheckStrategy = NullValueCheckStrategy.ALWAYS )
+@Mapper (
+		componentModel = "spring",
+		collectionMappingStrategy = CollectionMappingStrategy.ADDER_PREFERRED,
+		nullValueCheckStrategy = NullValueCheckStrategy.ALWAYS
+)
 public interface BasketMapper {
 
 	/*
@@ -14,6 +18,7 @@ public interface BasketMapper {
 	 */
 
 
+	@Mapping ( target = "deliveryCost", ignore = true )
 	@Mapping ( target = "updatedAt", ignore = true )
 	@Mapping ( target = "type", ignore = true )
 	@Mapping ( target = "createdAt", ignore = true )
@@ -21,6 +26,7 @@ public interface BasketMapper {
 	BasketDocument toDocument( BasketRequest source );
 
 
+	@Mapping ( target = "deliveryCost", ignore = true )
 	@Mapping ( target = "updatedAt", ignore = true )
 	@Mapping ( target = "type", ignore = true )
 	@Mapping ( target = "createdAt", ignore = true )
@@ -34,14 +40,20 @@ public interface BasketMapper {
 	 * ADDRESS MAPPERS
 	 */
 
+	@Mapping ( target = "longitude", ignore = true )
+	@Mapping ( target = "latitude", ignore = true )
+	@Mapping ( target = "id", ignore = true )
+	@Mapping ( target = "activation", ignore = true )
 	@Mapping ( target = "type", ignore = true )
 	@Mapping ( target = "active", ignore = true )
-
 	AddressDocument toDocument( AddressRequest source );
 
+	@Mapping ( target = "latitude", ignore = true )
+	@Mapping ( target = "longitude", ignore = true )
+	@Mapping ( target = "id", ignore = true )
+	@Mapping ( target = "activation", ignore = true )
 	@Mapping ( target = "type", ignore = true )
 	@Mapping ( target = "active", ignore = true )
-
 	AddressDocument toDocument( AddressRequest source, @MappingTarget AddressDocument target );
 
 
@@ -52,14 +64,16 @@ public interface BasketMapper {
 	 * CONTACT MAPPERS
 	 */
 
+	@Mapping ( target = "id", ignore = true )
+	@Mapping ( target = "activation", ignore = true )
 	@Mapping ( target = "type", ignore = true )
 	@Mapping ( target = "active", ignore = true )
-
 	ContactDocument toDocument( ContactRequest source );
 
+	@Mapping ( target = "id", ignore = true )
+	@Mapping ( target = "activation", ignore = true )
 	@Mapping ( target = "type", ignore = true )
 	@Mapping ( target = "active", ignore = true )
-
 	ContactDocument toDocument( ContactRequest source, @MappingTarget ContactDocument target );
 
 
@@ -69,12 +83,12 @@ public interface BasketMapper {
 	 * CUSTOMER MAPPERS
 	 */
 
+	@Mapping ( target = "id", ignore = true )
 	@Mapping ( target = "active", ignore = true )
-
 	CustomerDocument toDocument( CustomerRequest source );
 
+	@Mapping ( target = "id", ignore = true )
 	@Mapping ( target = "active", ignore = true )
-
 	CustomerDocument toDocument( CustomerRequest source, @MappingTarget CustomerDocument target );
 
 
@@ -85,11 +99,16 @@ public interface BasketMapper {
 	 */
 
 	@Mapping ( target = "active", ignore = true )
-
+	@Mapping ( target = "isExternal", ignore = true )
+	@Mapping ( target = "width", ignore = true )
+	@Mapping ( target = "height", ignore = true )
+	@Mapping ( target = "altText", ignore = true )
 	MediaDocument toDocument( MediaRequest source );
 
+	@Mapping ( target = "isExternal", ignore = true )
+	@Mapping ( target = "width", ignore = true )
+	@Mapping ( target = "height", ignore = true )
 	@Mapping ( target = "active", ignore = true )
-
 	MediaDocument toDocument( MediaRequest source, @MappingTarget MediaDocument target );
 
 
@@ -99,12 +118,12 @@ public interface BasketMapper {
 	 * PAYMENT MAPPERS
 	 */
 
+	@Mapping ( target = "isPaid", ignore = true )
 	@Mapping ( target = "active", ignore = true )
-
 	PaymentDocument toDocument( PaymentRequest source );
 
+	@Mapping ( target = "isPaid", ignore = true )
 	@Mapping ( target = "active", ignore = true )
-
 	PaymentDocument toDocument( PaymentRequest source, @MappingTarget PaymentDocument target );
 
 
@@ -115,12 +134,13 @@ public interface BasketMapper {
 	 * PRODUCT MAPPERS
 	 */
 
+	@Mapping ( target = "tax", ignore = true )
 	@Mapping ( target = "active", ignore = true )
-
 	ProductDocument toDocument( ProductRequest source );
 
+	@Mapping ( target = "id", ignore = true )
+	@Mapping ( target = "tax", ignore = true )
 	@Mapping ( target = "active", ignore = true )
-
 	ProductDocument toDocument( ProductRequest source, @MappingTarget ProductDocument target );
 
 
@@ -131,13 +151,10 @@ public interface BasketMapper {
 	 */
 
 	@Mapping ( target = "active", ignore = true )
-
 	StoreDocument toDocument( StoreRequest source );
 
 	@Mapping ( target = "active", ignore = true )
-
 	StoreDocument toDocument( StoreRequest source, @MappingTarget StoreDocument target );
-
 
 	StoreResponse toResponse( StoreDocument source );
 
@@ -145,12 +162,16 @@ public interface BasketMapper {
 	 * TOKEN MAPPERS
 	 */
 
+	@Mapping ( target = "updatedAt", ignore = true )
+	@Mapping ( target = "createdAt", ignore = true )
+	@Mapping ( target = "hashValue", ignore = true )
 	@Mapping ( target = "active", ignore = true )
-
 	TokenDocument toDocument( String source );
 
+	@Mapping ( target = "updatedAt", ignore = true )
+	@Mapping ( target = "createdAt", ignore = true )
+	@Mapping ( target = "hashValue", ignore = true )
 	@Mapping ( target = "active", ignore = true )
-
 	TokenDocument toDocument( TokenRequest source, @MappingTarget TokenDocument target );
 
 

@@ -17,7 +17,9 @@ import java.util.LinkedHashSet;
 import java.util.Objects;
 import java.util.Set;
 import java.util.UUID;
+
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Field;
 
 @Data
 @NoArgsConstructor ( force = true, access = AccessLevel.PUBLIC )
@@ -31,11 +33,12 @@ public class BasketDocument {
 	}
 
 	@Id
+	@Field ( "_id" )
 	String id;
 
-	Type type=Type.SHOPPING_CART;
+	Type type = Type.SHOPPING_CART;
 
-	String session= UUID.randomUUID().toString();
+	String session = UUID.randomUUID().toString();
 
 	CustomerDocument customer;
 
@@ -66,7 +69,7 @@ public class BasketDocument {
 			BigDecimal.ZERO;
 
 	@Transient
-			BigDecimal deliveryCost= ( this.products != null ) ?
+	BigDecimal deliveryCost = ( this.products != null ) ?
 			this.products.stream()
 					.filter( Objects :: nonNull )
 					.map( product -> product.getDeliveryCost() )
@@ -111,27 +114,38 @@ public class BasketDocument {
 
 	Boolean active = Boolean.TRUE;
 
+
 	@Override
-	public boolean equals(Object o) {
-		if (this == o) return true;
-		if (!(o instanceof BasketDocument)) return false;
-		BasketDocument that = (BasketDocument) o;
-		return Objects.equals(getId(), that.getId()) && getSession().equals(that.getSession()) && getStore().equals(that.getStore());
+	public boolean equals( Object o ) {
+
+		if ( this == o ) {
+			return true;
+		}
+		if ( ! ( o instanceof BasketDocument ) ) {
+			return false;
+		}
+		BasketDocument that = ( BasketDocument ) o;
+		return Objects.equals( getId(), that.getId() ) && getSession().equals( that.getSession() ) && getStore().equals( that.getStore() );
 	}
+
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(getId(), getSession(), getStore());
+
+		return Objects.hash( getId(), getSession(), getStore() );
 	}
+
 
 	@Override
 	public String toString() {
-		return Objects.requireNonNull(this.getSession()) + ", " +
-				Objects.requireNonNull(this.getCustomer()) + ", " +
-				Objects.requireNonNull(this.getStore()) + ", " +
-				Objects.requireNonNull(this.getTotalPrice()) + ", " +
-				Objects.requireNonNull(this.getTotalTax()) + ", " +
-				Objects.requireNonNull(this.getTotalDiscount()) + ", "+
-				"Expires at " + this.getCreatedAt().plusMinutes(30) + " ." ;
+
+		return Objects.requireNonNull( this.getSession() ) + ", " +
+				Objects.requireNonNull( this.getCustomer() ) + ", " +
+				Objects.requireNonNull( this.getStore() ) + ", " +
+				Objects.requireNonNull( this.getTotalPrice() ) + ", " +
+				Objects.requireNonNull( this.getTotalTax() ) + ", " +
+				Objects.requireNonNull( this.getTotalDiscount() ) + ", " +
+				"Expires at " + this.getCreatedAt().plusMinutes( 30 ) + " .";
 	}
+
 }
