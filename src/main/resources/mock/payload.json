@@ -1,0 +1,79 @@
+{
+  "sub": "1234567890",
+  "basket_items": [
+    {
+      "customer": {
+        "title": "Mr.",
+        "firstName": "John",
+        "lastName": "Doe",
+        "dateOfBirth": "1986-03-11",
+        "addresses": [
+          {
+            "doorNo": "2",
+            "buildingNo": "82",
+            "street": "Langestraat",
+            "municipality": "Zele",
+            "postCode": "9240",
+            "city": "Gent",
+            "region": "Oost-Vlaanderen",
+            "country": "Belgie"
+          }
+        ],
+        "contacts": [
+          {
+            "email": "john@doe.com",
+            "phone": "0466122335"
+          }
+        ]
+      },
+      "store": {
+        "name": "Pizza Hut",
+        "about": "The best pizzeria in town.",
+        "contact": {
+          "email": "pizza@hut.be",
+          "phone": "04687788293"
+        },
+        "address": {
+          "doorNo": "5",
+          "buildingNo": "156",
+          "street": "Bakeriestraat",
+          "municipality": "Zele",
+          "postCode": "9240",
+          "city": "Gent",
+          "region": "Oost-Vlaanderen",
+          "country": "Belgie"
+        }
+      },
+      "products": [
+        {
+          "type": "SINGLE",
+          "slug": "https://www.pizzahut.be/margheritta_large/",
+          "ean": "1231-ABC-21425",
+          "title": "Pizza Margherita",
+          "description": "Fresh and delicious!!",
+          "quantity": 2,
+          "currency": "EUR",
+          "price": 12.50,
+          "tax": 1.15,
+          "discount": 0,
+          "deliveryCost": 0,
+          "medias": [
+            {
+              "title": "Pizza margherita",
+              "url": "https://images.prismic.io/dcm-article/367fbacf-e35c-4089-82e2-52c8908de77f_KALENJI+HR+500.jpg",
+              "isExternal": true
+            }
+          ]
+        }
+      ],
+      "payments": [
+        {
+          "type": "COD",
+          "amount": 12.50,
+          "isPaid": true
+        }
+      ]
+    }
+  ],
+  "iat": 1516239022
+}

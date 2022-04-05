@@ -11,10 +11,12 @@ import java.util.Date;
 
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.Claims;
+import org.springframework.stereotype.Service;
 
 /*
-    Our simple static class that demonstrates how to create and decode JWTs.
+    It is a bean that demonstrates how to create and decode JWTs.
  */
+@Service
 public class JWTMapper {
 
 	// The secret key. This should be in a property file NOT under source
