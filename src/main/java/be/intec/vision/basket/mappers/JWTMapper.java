@@ -27,7 +27,7 @@ public class JWTMapper {
 
 
 	//Sample method to construct a JWT
-	public String createJWT( String id, String issuer, String subject, long ttlMillis ) {
+	public String encodeJWT( String id, String issuer, String subject, long ttlMillis ) {
 
 		//The JWT signature algorithm we will be using to sign the token
 		SignatureAlgorithm signatureAlgorithm = SignatureAlgorithm.HS256;

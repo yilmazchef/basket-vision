@@ -1,6 +1,7 @@
 package be.intec.vision.basket.controllers;
 
 
+import be.intec.vision.basket.mappers.JWTMapper;
 import be.intec.vision.basket.models.requests.BasketRequest;
 import be.intec.vision.basket.models.responses.BasketResponse;
 import be.intec.vision.basket.repositories.BasketRepository;
@@ -10,12 +11,14 @@ import be.intec.vision.basket.models.http.HttpEndpoints;
 import be.intec.vision.basket.models.http.HttpFailureMessages;
 import be.intec.vision.basket.models.http.HttpSuccessMessages;
 import be.intec.vision.basket.mappers.BasketMapper;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import lombok.RequiredArgsConstructor;
+import lombok.SneakyThrows;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -38,8 +41,11 @@ public class BasketCtrl {
 
 	private final BasketRepository basketRepository;
 	private final BasketMapper basketMapper;
+	private final JWTMapper jwtMapper;
+	private final ObjectMapper jsonMapper;
 
 
+	@SneakyThrows
 	@Operation ( summary = "Create a new basket" )
 	@ApiResponses ( value = {
 			@ApiResponse ( responseCode = "201", description = "Created the basket",
@@ -50,7 +56,7 @@ public class BasketCtrl {
 			@ApiResponse ( responseCode = "404", description = "Page not found",
 					content = @Content ) } )
 	@PostMapping ( HttpEndpoints.POST_SINGLE )
-	public ResponseEntity< BasketResponse > create( @RequestBody @Valid BasketRequest request ) {
+	public ResponseEntity< String > create( @RequestBody @Valid BasketRequest request ) {
 
 		if ( request.getStore() == null ) {
 			throw new ResponseStatusException( HttpStatus.BAD_REQUEST, HttpFailureMessages.BASKET_EXIST_CANNOT_BE_CREATED.getDescription() );
@@ -75,11 +81,17 @@ public class BasketCtrl {
 		// Generate JWT for basket
 		// Requires a secret to decrypt: 1234 (unique signature from the end-user)
 
+		final BasketResponse body = basketMapper.toResponse(
+				basketRepository.save( basketDocument )
+		);
+
+		String issuer = body.getCustomer().getFirstName() + " " + body.getCustomer().getLastName();
+		String bodyAsString = jsonMapper.writeValueAsString( body );
+		String encodedJWT = jwtMapper.encodeJWT( body.getId(), issuer, bodyAsString, 2 * 60 * 60 * 60 );
+
 		return ResponseEntity
 				.status( HttpStatus.CREATED )
-				.body( basketMapper.toResponse(
-						basketRepository.save( basketDocument )
-				) );
+				.body( encodedJWT );
 	}
 
 

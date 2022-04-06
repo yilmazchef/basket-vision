@@ -24,6 +24,7 @@ public class TokenDocument {
 	@Field ( "_id" )
 	String id;
 
+	// Encrypted secret key for JWT token
 	@NonNull
 	String hashValue;
 
