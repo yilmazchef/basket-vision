@@ -16,8 +16,6 @@ import java.time.LocalDateTime;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class TokenResponse {
 
-    String id;
-
     String hashValue;
 
     LocalDateTime createdAt;

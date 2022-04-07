@@ -26,7 +26,7 @@ public class CustomerResponse {
     }
 
 
-    String id;
+
 
     Type type;
 

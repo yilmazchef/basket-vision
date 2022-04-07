@@ -26,8 +26,6 @@ public class ContactResponse {
         ALL
     }
 
-    String id;
-
     Type type;
 
     String email;

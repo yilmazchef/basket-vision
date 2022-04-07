@@ -22,7 +22,6 @@ public class AddressResponse {
         ALL
     }
 
-    String id;
 
     Type type;
 

@@ -42,9 +42,6 @@ public class PaymentResponse {
 
     }
 
-
-    String id;
-
     Type type;
 
     BigDecimal amount;

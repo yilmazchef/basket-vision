@@ -19,9 +19,6 @@ import org.springframework.data.mongodb.core.mapping.MongoId;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class StoreResponse {
 
-
-    String id;
-
     String name;
 
     String about;

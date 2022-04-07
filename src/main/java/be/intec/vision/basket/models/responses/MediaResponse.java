@@ -23,9 +23,6 @@ public class MediaResponse {
         STL, OBJ, MF, DS, MAX, COLLADA, VRML, X3D, STEP, FBX   // 3D OBJECTS
     }
 
-
-    String id;
-
     Type type;
 
     String title;

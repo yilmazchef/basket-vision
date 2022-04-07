@@ -30,8 +30,6 @@ public class ProductResponse {
         FREE
     }
 
-    String id;
-
     Type type;
 
     String slug;
