@@ -49,13 +49,12 @@ public class BasketCtrl {
 	@Operation ( summary = "Create a new basket" )
 	@ApiResponses ( value = {
 			@ApiResponse ( responseCode = "201", description = "Created the basket",
-					content = { @Content ( mediaType = "application/json",
-							schema = @Schema ( implementation = BasketResponse.class ) ) } ),
+					content = { @Content ( schema = @Schema ( implementation = BasketResponse.class ) ) } ),
 			@ApiResponse ( responseCode = "400", description = "Basket cannot be created",
 					content = @Content ),
 			@ApiResponse ( responseCode = "404", description = "Page not found",
 					content = @Content ) } )
-	@PostMapping ( HttpEndpoints.POST_SINGLE )
+	@PostMapping (value = HttpEndpoints.POST_SINGLE, produces = { "text/plain"})
 	public ResponseEntity< String > create( @RequestBody @Valid BasketRequest request ) {
 
 		if ( request.getStore() == null ) {
@@ -81,17 +80,18 @@ public class BasketCtrl {
 		// Generate JWT for basket
 		// Requires a secret to decrypt: 1234 (unique signature from the end-user)
 
-		final BasketResponse body = basketMapper.toResponse(
+		final BasketResponse basketResponse = basketMapper.toResponse(
 				basketRepository.save( basketDocument )
 		);
 
-		String issuer = body.getCustomer().getFirstName() + " " + body.getCustomer().getLastName();
-		String bodyAsString = jsonMapper.writeValueAsString( body );
-		String encodedJWT = jwtMapper.encodeJWT( body.getId(), issuer, bodyAsString, 2 * 60 * 60 * 60 );
+		String issuer = basketResponse.getCustomer().getFirstName() + " " + basketResponse.getCustomer().getLastName();
+		String bodyAsString = jsonMapper.writeValueAsString( basketResponse );
+		String encodedJWT = jwtMapper.encodeJWT( basketResponse.getId(), issuer, bodyAsString, 2 * 60 * 60 * 60 );
 
 		return ResponseEntity
 				.status( HttpStatus.CREATED )
-				.body( encodedJWT );
+				.header("Token", encodedJWT)
+				.body( HttpSuccessMessages.BASKET_CREATED.getDescription() );
 	}
 
 
