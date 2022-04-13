@@ -7,13 +7,13 @@ Magic Basket is a program that helps you consolidate all your online baskets and
 ## Index
 The goals of this program are to:
 
-Consolidate all your shopping lists in one easy tool.
-Spare time and energy in searching and validating various baskets at different retailers.
-You no longer need to login each time you shop and validate your baskets store by store.
-Eradicate the risk of loosing information on your shopping list after session has timed out.
-Simplifies purchasing path for the user and improves clients' experience.
-Developing with Computer Vision.
-The tool is handsfree that is virus- and bacteria free and it's accessable for elderly and disabled users.
+* Consolidate all your shopping lists in one easy tool
+* Spare time and energy in searching and validating various baskets at different retailers
+* You no longer need to login each time you shop and validate your baskets store by store
+* Eradicate the risk of loosing information on your shopping list after session has timed out
+* Simplifies purchasing path for the user and improves clients' experience
+* Developing with Computer Vision
+* The tool is handsfree that is virus- and bacteria free and it's accessable for elderly and disabled users
 
 Getting started without Computer Vision
 
@@ -34,7 +34,7 @@ NumPy <br/>
 Docker <br/>
 
 Once you have the prerequisites installed and the code downloaded and expanded into a directory (which we will call "magic basket"),
-Go to http://localhost:8080 and you should see the app running.
+Go to http://localhost:8888 and you should see the app running.
 
 ## Setup Environment
 
