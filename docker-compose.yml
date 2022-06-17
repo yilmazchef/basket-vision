@@ -17,7 +17,7 @@ services:
     depends_on:
       - db_server
     ports:
-      - 9011:8080
+      - "8080"
 
   backend:
     image: yilmazchef/intec-vision-basket:latest
@@ -32,4 +32,4 @@ services:
     links:
       - db_server:db_server
     ports:
-      - 8011:8080
+      - "8080"
