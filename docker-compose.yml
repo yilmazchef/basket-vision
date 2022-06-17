@@ -33,3 +33,15 @@ services:
       - db_server:db_server
     ports:
       - "8080"
+
+
+networks:
+  pronet:
+  devnet:
+    driver: bridge
+
+volumes:
+  appvol_base: { }
+  appvol_data: { }
+  dbvol_base: { }
+  dbvol_data: { }
